@@ -1,7 +1,9 @@
 [Default Applications]
 
+# Image
 image/png=firefox.desktop;
 image/jpeg=firefox.desktop;
 
+# Text
 text/plain=firefox.desktop;
 
