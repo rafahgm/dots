@@ -1,6 +1,12 @@
 #!/bin/bash
 
 #
+#   Shell options
+#
+
+shopt -s direxpand
+
+#
 #   Env
 #
 
@@ -32,13 +38,14 @@ export PS1="\[${blue}\]\W \[${clear}\]\$ "
 alias ls='exa -stype' # sort alphabetically and by type
 alias ll='exa -stype -l' # the same, with more detail
 alias lr='exa -rsmod' # list recently modified files, newest first
+alias open='xdg-open'
 
 
 #
 #   Applications
 #
 
-alias code='detachx code-oss'
+alias code='detach code-oss'
 alias teams='detachx flatpak run com.microsoft.Teams'
 alias colpick='detachx gcolor3'
 alias mc='detachx minecraft-launcher'
