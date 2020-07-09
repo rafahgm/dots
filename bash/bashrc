@@ -6,6 +6,7 @@
 
 shopt -s direxpand
 
+
 #
 #   Env
 #
@@ -57,24 +58,24 @@ alias filesx='detachx nautilus'
 #   Locations
 #
 
-DOCS="$HOME/Documents"
-PICS="$HOME/Pictures"
-VIDS="$HOME/Videos"
-MUSIC="$HOME/Music"
-UNI="$HOME/Uni"
-PROG="$HOME/Programming"
-DLS="$HOME/Downloads"
-CFG="$HOME/.config"
+docs="$HOME/Documents"
+pics="$HOME/Pictures"
+vids="$HOME/Videos"
+music="$HOME/Music"
+uni="$HOME/Uni"
+prog="$HOME/Programming"
+dls="$HOME/Downloads"
+cfg="$HOME/.config"
 
 alias home='cdr "$HOME"'
-alias docs='cdr "$DOCS"'
-alias pics='cdr "$PICS"'
-alias vids='cdr "$VIDS"'
-alias music='cdr "$MUSIC"'
-alias uni='cdr "$UNI"'
-alias prog='cdr "$PROG"'
-alias dls='cdr "$DLS"'
-alias cfg='cdr "$CFG"'
+alias docs='cdr "$docs"'
+alias pics='cdr "$pics"'
+alias vids='cdr "$vids"'
+alias music='cdr "$music"'
+alias uni='cdr "$uni"'
+alias prog='cdr "$prog"'
+alias dls='cdr "$dls"'
+alias cfg='cdr "$cfg"'
 
 
 #
