@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 #####################
 #					#
@@ -14,7 +14,7 @@ start() {
 }
 
 #
-#   Startup
+#   Startup background apps
 #
 
 # hotkeys
@@ -26,14 +26,8 @@ start feh --bg-scale /home/adam/Pictures/matador-rocks.jpg
 # compositor
 start compton
 
-# polybar
-start polybar example -r
-
 # notifications
 start dunst
-
-# root window cursor
-start xsetroot -cursor_name left_ptr
 
 # set default volume
 start amixer set Master 50%
@@ -41,8 +35,19 @@ start amixer set Master 50%
 # pulseeffects daemon
 start pulseeffects --gapplication-service
 
-# xrandr (make sure to sudo nvidia-settings, x server configuration, advanced, force full compisition, save to x config)
+# polybar
+start polybar main
+
+
+#
+#   Startup run commands
+#
+
+# xrandr set 165hz refresh rate
 start xrandr --output DP-2 --mode 1920x1080 --rate 164.92
+
+# root window cursor
+start xsetroot -cursor_name left_ptr
 
 
 #
@@ -69,3 +74,10 @@ bspc config borderless_monocle    true
 # control
 bspc config focus_follows_pointer true
 bspc config pointer_motion_interval 4ms
+
+
+#
+#   Application specific
+#
+
+bspc rule -a Zathura state=tiled

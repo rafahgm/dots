@@ -25,10 +25,11 @@ foreground-alt2 = #222
 primary = #f00
 alert = #f00
 
-[bar/example]
+[bar/main]
 width = 100%
-height = 40
+height = 60
 bottom = true
+wm-restack = bspwm
 
 background = ${colors.background}
 foreground = ${colors.foreground}

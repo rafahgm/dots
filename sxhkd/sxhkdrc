@@ -20,7 +20,7 @@ super + Return
 
 # Rofi
 super + {d,Tab,grave}
-	rofi -show {run,windowcd,window}
+	rofi -show {drun,windowcd,window}
 
 # Nautilus
 super + e
@@ -31,7 +31,7 @@ super + {shift + r, r}
 	firefox {--private-window, --new-window}
 
 # Screenlock
-super + shift + l
+super + ctrl + shift + l
     gnome-screensaver-command -l
 
 # Flameshot
@@ -40,7 +40,7 @@ super + shift + l
 
 
 #
-#	Keyboard control buttons
+#	Media keys
 #
 
 # Increase volume

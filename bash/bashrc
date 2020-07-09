@@ -4,52 +4,118 @@
 #   Env
 #
 
+export GOPATH="$HOME/Programming/Go"
 export JAVA_HOME=/usr/lib64/openjdk-8
+
 
 #
 #   Path
 #
 
-export PATH=$PATH:$JAVA_HOME/bin
+export PATH=$PATH:$GOPATH/bin:$JAVA_HOME/bin
+
 
 #
 #   Prompt
 #
 
-blue='\[\033[01;35m\]'
-clear='\[\033[0m\]'
-export PS1="${blue}\W ${clear}\$ "
+blue='\033[01;35m'
+lblue='\033[01;36m'
+clear='\033[0m'
+export PS1="\[${blue}\]\W \[${clear}\]\$ "
 
 
 #
 #   Aliases
 #
 
-alias topdf='lowriter --convert-to pdf'
-alias c='code-oss'
+alias ls='exa -stype' # sort alphabetically and by type
+alias ll='exa -stype -l' # the same, with more detail
+alias lr='exa -rsmod' # list recently modified files, newest first
+
+
+#
+#   Applications
+#
+
+alias code='detachx code-oss'
+alias teams='detachx flatpak run com.microsoft.Teams'
+alias colpick='detachx gcolor3'
+alias mc='detachx minecraft-launcher'
+alias files='detach nautilus'
+alias filesx='detachx nautilus'
+
+
+#
+#   Locations
+#
+
+DOCS="$HOME/Documents"
+PICS="$HOME/Pictures"
+VIDS="$HOME/Videos"
+MUSIC="$HOME/Music"
+UNI="$HOME/Uni"
+PROG="$HOME/Programming"
+DLS="$HOME/Downloads"
+CFG="$HOME/.config"
+
+alias home='cdr "$HOME"'
+alias docs='cdr "$DOCS"'
+alias pics='cdr "$PICS"'
+alias vids='cdr "$VIDS"'
+alias music='cdr "$MUSIC"'
+alias uni='cdr "$UNI"'
+alias prog='cdr "$PROG"'
+alias dls='cdr "$DLS"'
+alias cfg='cdr "$CFG"'
 
 
 #
 #   Functions
 #
 
-# goto example.com
-goto() {
+# change directory and show some recently modified files
+function cdr() {
+  cd "$1"
+  pwd
+  echo ''
+  echo -e "${lblue}Recently modified:${clear}"
+  lr --color=always | head
+  echo ''
+}
+
+# run process detached
+function detach() {
+  ("$@" >/dev/null 2>&1 &)
+}
+
+# run process detached then exit
+function detachx() {
+  detach "$@" && exit > /dev/null 2>&1
+}
+
+# convert to pdf - use: topdf myfile.docx
+function topdf() {
+  lowriter --convert-to pdf "$@"
+}
+
+# open in firefox - use: goto example.com
+function goto() {
   for x in "$@"; do
-    ( firefox "$x" >/dev/null 2>&1 & )
+    detach firefox "$x"
   done
 }
 
-# search "foo bar"
-search() {
+# search google in firefox - use: search "web development"
+function search() {
   if [ "$1" != "" ]; then
     q=$(echo "$1" | sed s/" "/+/g)
-    ( firefox https://www.google.co.uk/search?q="$q" >/dev/null 2>&1 & )
+    detachx firefox https://www.google.co.uk/search?q="$q"
   fi
 }
 
-# rmspaces *.pdf
-rmspaces() {
+# remove spaces from filenames - use: rmspaces *.pdf
+function rmspaces() {
   for f in "$@"; do
     dir=$(dirname "$f")
     bn=$(basename "$f")
@@ -59,9 +125,29 @@ rmspaces() {
   done
 }
 
-# zipdir mydir
-zipdir() {
+# zip directories - use: zipdir mydir myotherdir
+function zipdir() {
   for f in "$@"; do
     zip -r "$f" "$f"
   done
+}
+
+# lamp restart
+function lampr() {
+  sudo systemctl restart httpd php-fpm mariadb
+}
+
+# lamp stop
+function lampstop() {
+  sudo systemctl stop httpd php-fpm mariadb
+}
+
+# trim video - use: trim video.mp4 00:00:30 00:00:05 (filename, start timestamp, length of video)
+function trim() {
+  ffmpeg -ss $2 -i "$1" -t $3 -vcodec copy -acodec copy "trimmed-$1"
+}
+
+# convert to webm - use: towebm inputfile.mp4 outputfilename
+function towebm() {
+  ffmpeg -i "$1" "$2".webm
 }

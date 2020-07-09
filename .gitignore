@@ -1,0 +1,14 @@
+*
+!.gitignore
+!alacritty
+!bash
+!bspwm
+!compton
+!dunst
+!feh
+!gtk-3.0
+!polybar
+!PulseEffects
+!rofi
+!sxhkd
+!zathura
