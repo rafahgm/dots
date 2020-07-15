@@ -159,3 +159,18 @@ function trim() {
 function towebm() {
   ffmpeg -i "$1" "$2".webm
 }
+
+# get volume
+function vol() {
+  amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }'
+}
+
+# increase volume
+function volup() {
+  amixer -q sset Master 5%+
+}
+
+# decrease volume
+function voldown() {
+  amixer -q sset Master 5%-
+}

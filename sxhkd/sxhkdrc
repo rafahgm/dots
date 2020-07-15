@@ -45,15 +45,15 @@ super + ctrl + shift + l
 
 # Increase volume
 XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +10000
+    amixer -q sset Master 5%+
 
 # Decrease volume
 XF86AudioLowerVolume
-	pactl set-sink-volume @DEFAULT_SINK@ -10000
+	amixer -q sset Master 5%-
 
 # Toggle mute
 XF86AudioMute
-	pactl set-sink-mute @DEFAULT_SINK@ toggle
+	amixer -q sset Master toggle
 
 # Spotify pause
 XF86AudioPlay
