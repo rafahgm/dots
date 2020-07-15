@@ -1,16 +1,15 @@
 [Default Applications]
-
-# Image
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
 image/png=firefox.desktop;
 image/jpeg=firefox.desktop;
-
-# Text
 text/plain=firefox.desktop;
+text/html=firefox.desktop
 
-
-
-
-
-
-# See a list of common mimetypes:
-# https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+[Added Associations]
+application/x-java-archive=java-8-jar.desktop;
+application/pdf=firefox.desktop;
+inode/directory=vscode-oss.desktop;org.gnome.Nautilus.desktop;
+video/mp4=firefox.desktop;

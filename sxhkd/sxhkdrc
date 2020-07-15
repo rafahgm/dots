@@ -80,6 +80,10 @@ XF86MonBrightnessDown
 #	bspwm hotkeys
 #
 
+# next unoccupied
+super + n
+	bspc desktop -f next.!occupied
+
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
