@@ -11,4 +11,6 @@
 **Icons**:         adwaita  
 **Cursor**:        adwaita  
 
-![preview](preview.png)
+![preview1](preview1.png)
+
+![preview2](preview2.png)
