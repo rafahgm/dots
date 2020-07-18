@@ -4,7 +4,7 @@
 **WM**:            bspwm  
 **Bar**:           polybar  
 **Launcher**:      rofi  
-**Compositor**:    compton  
+**Compositor**:    picom  
 **Notifications**: dunst  
 **Terminal**:      alacritty  
 **GTK**:           solus  
