@@ -17,7 +17,7 @@
 ;==========================================================
 
 [colors]
-background = #000
+background = #000000
 background-alt = #0f0
 foreground = #fff
 foreground-alt = #666
@@ -34,8 +34,9 @@ wm-restack = bspwm
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-;border-size = 4
-;border-color = #000
+border-size = 0
+border-top-size = 1
+border-color = #fff
 
 padding-left = 0
 padding-right = 2
@@ -357,7 +358,7 @@ screenchange-reload = true
 ;pseudo-transparency = false
 
 [global/wm]
-margin-top = 0
+margin-top = 1
 margin-bottom = 0
 
 ; vim:ft=dosini

@@ -24,7 +24,7 @@ start sxhkd
 start feh --bg-scale /home/adam/Pictures/matador-rocks.jpg
 
 # compositor
-start compton
+start picom --experimental-backends
 
 # notifications
 start dunst
@@ -36,7 +36,7 @@ start amixer set Master 50%
 start pulseeffects --gapplication-service
 
 # polybar
-start polybar main
+start polybar main -r
 
 
 #
@@ -44,7 +44,7 @@ start polybar main
 #
 
 # xrandr set 165hz refresh rate
-start xrandr --output DP-2 --mode 1920x1080 --rate 164.92
+start xrandr --output DP-4 --mode 1920x1080 --rate 164.92
 
 # root window cursor
 start xsetroot -cursor_name left_ptr

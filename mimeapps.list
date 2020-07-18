@@ -13,3 +13,5 @@ application/x-java-archive=java-8-jar.desktop;
 application/pdf=firefox.desktop;
 inode/directory=vscode-oss.desktop;org.gnome.Nautilus.desktop;
 video/mp4=firefox.desktop;
+image/png=gimp.desktop;
+application/x-virtualbox-vdi=virtualbox.desktop;
