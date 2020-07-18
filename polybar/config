@@ -35,7 +35,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 border-size = 0
-border-top-size = 1
+border-top-size = 0
 border-color = #fff
 
 padding-left = 0
