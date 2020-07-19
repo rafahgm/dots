@@ -15,3 +15,4 @@ inode/directory=vscode-oss.desktop;org.gnome.Nautilus.desktop;
 video/mp4=firefox.desktop;
 image/png=gimp.desktop;
 application/x-virtualbox-vdi=virtualbox.desktop;
+application/x-cd-image=virtualbox.desktop;
