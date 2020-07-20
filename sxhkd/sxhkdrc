@@ -19,8 +19,12 @@ super + Return
 	alacritty
 
 # Rofi
-super + {d,Tab,grave}
-	rofi -show {drun,windowcd,window}
+super + {d, Tab, grave}
+	rofi -show {drun, windowcd, window} -show-icons
+
+# Bookmark opener
+super + b
+	res=$(find /mnt/Portable/Bookmarks/ -type f | sed s,/mnt/Portable/Bookmarks/,,g | tail -n +2 | rofi -dmenu -i -p Bookmarks:); if [ "$res" != "" ]; then firefox $(cat /mnt/Portable/Bookmarks/"$res"); fi
 
 # Nautilus
 super + e
