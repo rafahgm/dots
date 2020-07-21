@@ -49,15 +49,15 @@ super + ctrl + shift + l
 
 # Increase volume
 XF86AudioRaiseVolume
-    amixer -q sset Master 5%+
+    sh ~/.config/sxhkd/volume.sh up
 
 # Decrease volume
 XF86AudioLowerVolume
-	amixer -q sset Master 5%-
+	sh ~/.config/sxhkd/volume.sh down
 
 # Toggle mute
 XF86AudioMute
-	amixer -q sset Master toggle
+	sh ~/.config/sxhkd/volume.sh toggle
 
 # Spotify pause
 XF86AudioPlay
