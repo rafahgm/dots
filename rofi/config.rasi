@@ -2,7 +2,7 @@ configuration {
     modi: "drun,window,windowcd";
     width: 30;
     lines: 8;
-    /* columns: 2; */
+    columns: 2;
     font: "Inter Regular 12";
     bw: 10;
     /* location: 0; */
