@@ -24,7 +24,7 @@ super + {d, Tab, grave}
 
 # Bookmark opener
 super + b
-	sh ~/.config/sxhkd/bookmarks.sh
+	sh ~/.config/script/bookmarks.sh
 
 # Nautilus
 super + e
