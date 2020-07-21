@@ -49,15 +49,15 @@ super + ctrl + shift + l
 
 # Increase volume
 XF86AudioRaiseVolume
-    sh ~/.config/script/volume.sh up
+    amixer -q sset Master 5%+
 
 # Decrease volume
 XF86AudioLowerVolume
-	sh ~/.config/script/volume.sh down
+	amixer -q sset Master 5%-
 
 # Toggle mute
 XF86AudioMute
-	sh ~/.config/script/volume.sh toggle
+	amixer -q sset Master toggle
 
 # Spotify pause
 XF86AudioPlay

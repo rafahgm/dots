@@ -1,8 +1,8 @@
 configuration {
     modi: "drun,window,windowcd";
-    width: 30;
-    lines: 8;
-    columns: 2;
+    width: 40;
+    lines: 10;
+    columns: 3;
     font: "Inter Regular 12";
     bw: 10;
     /* location: 0; */
