@@ -18,3 +18,4 @@ application/x-virtualbox-vdi=virtualbox.desktop;
 application/x-cd-image=virtualbox.desktop;
 video/webm=firefox.desktop;
 application/x-shellscript=vscode-oss.desktop;
+text/csv=vscode-oss.desktop;

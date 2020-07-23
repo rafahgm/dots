@@ -6,7 +6,6 @@
 
 shopt -s direxpand
 
-
 #
 #   Env
 #
@@ -15,56 +14,49 @@ export GOPATH="$HOME/Programming/Go"
 export JAVA_HOME=/usr/lib64/openjdk-8
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-
 #
 #   Path
 #
 
-export PATH=$PATH:$GOPATH/bin:$JAVA_HOME/bin
-
+export PATH="$PATH":"$GOPATH/bin":"$JAVA_HOME/bin"
 
 #
 #   Prompt
 #
 
 blue='\033[01;35m'
-lblue='\033[01;36m'
 clear='\033[0m'
 export PS1="\[${blue}\]\W \[${clear}\]\$ "
-
 
 #
 #   Aliases
 #
 
-alias ls='exa -stype' # sort alphabetically and by type
+alias ls='exa -stype'    # sort alphabetically and by type
 alias ll='exa -stype -l' # the same, with more detail
-alias lr='exa -rsmod' # list recently modified files, newest first
+alias lr='exa -rsmod'    # list recently modified files, newest first
 alias open='xdg-open'
-
 
 #
 #   Applications
 #
 
 alias code='detach code-oss'
-alias teams='detachx flatpak run com.microsoft.Teams'
 alias colpick='detachx gcolor3'
-alias mc='detachx minecraft-launcher'
 alias files='detach nautilus'
-alias filesx='detachx nautilus'
-
 
 #
 #   Locations
 #
 
-docs="$HOME/Documents"
-pics="$HOME/Pictures"
-vids="$HOME/Videos"
-music="$HOME/Music"
-uni="$HOME/Uni"
-prog="$HOME/Programming"
+usb="/mnt/Portable"
+
+docs="$usb/Documents"
+pics="$usb/Pictures"
+vids="$usb/Videos"
+music="$usb/Music"
+uni="$usb/Uni"
+prog="$usb/Programming"
 dls="$HOME/Downloads"
 cfg="$HOME/.config"
 
@@ -78,100 +70,161 @@ alias prog='cdr "$prog"'
 alias dls='cdr "$dls"'
 alias cfg='cdr "$cfg"'
 
-
 #
 #   Functions
 #
 
 # change directory and show some recently modified files
+lblue='\033[01;36m'
 function cdr() {
-  cd "$1"
-  pwd
-  echo ''
-  echo -e "${lblue}Recently modified:${clear}"
-  lr --color=always | head
-  echo ''
+    cd "$1"
+    pwd
+    echo ''
+    echo -e "${lblue}Recently modified:${clear}"
+    lr --color=always | head
+    echo ''
 }
 
 # run process detached
 function detach() {
-  ("$@" >/dev/null 2>&1 &)
+    ("$@" >/dev/null 2>&1 &)
 }
 
 # run process detached then exit
 function detachx() {
-  detach "$@" && exit > /dev/null 2>&1
+    detach "$@" && exit >/dev/null 2>&1
 }
 
 # convert to pdf - use: topdf myfile.docx
 function topdf() {
-  lowriter --convert-to pdf "$@"
+    lowriter --convert-to pdf "$@"
 }
 
 # open in firefox - use: goto example.com
 function goto() {
-  for x in "$@"; do
-    detach firefox "$x"
-  done
+    for x in "$@"; do
+        detach firefox "$x"
+    done
 }
 
-# search google in firefox - use: search "web development"
+# search google in firefox - use: search "blah blah"
 function search() {
-  if [ "$1" != "" ]; then
-    q=$(echo "$1" | sed s/" "/+/g)
-    detachx firefox https://www.google.co.uk/search?q="$q"
-  fi
+    if [ "$1" != "" ]; then
+        q=$(echo "$1" | sed s/" "/+/g)
+        detachx firefox https://www.google.co.uk/search?q="$q"
+    fi
 }
 
 # remove spaces from filenames - use: rmspaces *.pdf
 function rmspaces() {
-  for f in "$@"; do
-    dir=$(dirname "$f")
-    bn=$(basename "$f")
-    bnFormatted=$(echo "$bn" | tr " " _)
+    for f in "$@"; do
+        dir=$(dirname "$f")
+        bn=$(basename "$f")
+        bnFormatted=$(echo "$bn" | tr " " _)
 
-    mv "$f" "$dir"/$bnFormatted
-  done
+        mv "$f" "$dir"/$bnFormatted
+    done
 }
 
 # zip directories - use: zipdir mydir myotherdir
 function zipdir() {
-  for f in "$@"; do
-    zip -r "$f" "$f"
-  done
+    for f in "$@"; do
+        zip -r "$f" "$f"
+    done
 }
 
 # lamp restart
 function lampr() {
-  sudo systemctl restart httpd php-fpm mariadb
+    sudo systemctl restart httpd php-fpm mariadb
 }
 
 # lamp stop
 function lampstop() {
-  sudo systemctl stop httpd php-fpm mariadb
+    sudo systemctl stop httpd php-fpm mariadb
 }
 
 # trim video - use: trim video.mp4 00:00:30 00:00:05 (filename, start timestamp, length of video)
 function trim() {
-  ffmpeg -ss $2 -i "$1" -t $3 -vcodec copy -acodec copy "trimmed-$1"
+    ffmpeg -ss $2 -i "$1" -t $3 -vcodec copy -acodec copy "trimmed-$1"
 }
 
 # convert to webm - use: towebm inputfile.mp4 outputfilename
 function towebm() {
-  ffmpeg -i "$1" "$2".webm
+    ffmpeg -i "$1" "$2".webm
 }
 
 # get volume
 function vol() {
-  amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }'
+    amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }'
 }
 
 # increase volume
 function volup() {
-  amixer -q sset Master 5%+
+    amixer -q sset Master 5%+
 }
 
 # decrease volume
 function voldown() {
-  amixer -q sset Master 5%-
+    amixer -q sset Master 5%-
+}
+
+# bluetooth
+function bt() {
+    if [ "$1" == "start" ]; then # bluetooth on
+        sudo systemctl start bluetooth
+    elif [ "$1" == "stop" ]; then # bluetooth off
+        sudo systemctl stop bluetooth
+    elif [ "$1" == "enable" ]; then # bluetooth on on startup
+        sudo systemctl enable bluetooth
+    elif [ "$1" == "disenable" ]; then # bluetooth off on startup
+        sudo systemctl disable bluetooth
+    elif [ "$1" == "status" ]; then # bluetooth status
+        systemctl is-active bluetooth
+    elif [ "$1" == "devices" ]; then # found devices
+        bluetoothctl devices
+    elif [ "$1" == "scan" ]; then # find new devices
+        bluetoothctl scan on
+    elif [ "$1" == "connect" ]; then # connect by mac addr
+        bluetoothctl connect "$2"
+    elif [ "$1" == "disconnect" ]; then # disconnect
+        bluetoothctl disconnect "$2"
+    elif [ "$1" == "remove" ]; then # remove from found devices
+        bluetoothctl remove "$2"
+    else
+        echo "unknown argument"
+    fi
+}
+
+# wifi
+function wifi() {
+    if [ "$1" == "on" ]; then # turn wifi on
+        nmcli r wifi on
+    elif [ "$1" == "off" ]; then # turn wifi off
+        nmcli r wifi off
+    elif [ "$1" == "devices" ]; then # list network devices
+        nmcli d
+    elif [ "$1" == "scan" ]; then # scan for wifi devices
+        nmcli d wifi rescan
+        nmcli d wifi list
+    elif [ "$1" == "c" ]; then # connect "ssid" "password"
+        nmcli d wifi connect "$2" password "$3"
+    elif [ "$1" == "dc" ]; then # disconnect "ssid"
+        nmcli c down id "$2"
+    elif [ "$1" == "status" ]; then # list active connections
+        nmcli c s
+    elif [ "$1" == "gui" ]; then
+        gnome-control-center --search=wifi
+    else
+        echo "unknown argument"
+    fi
+}
+
+# ethernet
+function eth() {
+    echo "todo"
+}
+
+# battery
+function bat() {
+    acpi -b
 }
