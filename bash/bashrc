@@ -176,7 +176,7 @@ function bt() {
         sudo systemctl stop bluetooth
     elif [ "$1" == "enable" ]; then # bluetooth on on startup
         sudo systemctl enable bluetooth
-    elif [ "$1" == "disenable" ]; then # bluetooth off on startup
+    elif [ "$1" == "disable" ]; then # bluetooth off on startup
         sudo systemctl disable bluetooth
     elif [ "$1" == "status" ]; then # bluetooth status
         systemctl is-active bluetooth
@@ -190,6 +190,17 @@ function bt() {
         bluetoothctl disconnect "$2"
     elif [ "$1" == "remove" ]; then # remove from found devices
         bluetoothctl remove "$2"
+    elif [ "$1" == "help" ]; then # remove from found devices
+        echo "start"
+        echo "stop"
+        echo "enable"
+        echo "disable"
+        echo "status"
+        echo "devices"
+        echo "scan"
+        echo "connect"
+        echo "disconnect"
+        echo "remove"
     else
         echo "unknown argument"
     fi
@@ -206,14 +217,23 @@ function wifi() {
     elif [ "$1" == "scan" ]; then # scan for wifi devices
         nmcli d wifi rescan
         nmcli d wifi list
-    elif [ "$1" == "c" ]; then # connect "ssid" "password"
+    elif [ "$1" == "connect" ]; then # connect "ssid" "password"
         nmcli d wifi connect "$2" password "$3"
-    elif [ "$1" == "dc" ]; then # disconnect "ssid"
+    elif [ "$1" == "disconnect" ]; then # disconnect "ssid"
         nmcli c down id "$2"
     elif [ "$1" == "status" ]; then # list active connections
         nmcli c s
     elif [ "$1" == "gui" ]; then
         gnome-control-center --search=wifi
+    elif [ "$1" == "help" ]; then # remove from found devices
+        echo "on"
+        echo "off"
+        echo "devices"
+        echo "scan"
+        echo "connect"
+        echo "disconnect"
+        echo "status"
+        echo "gui"
     else
         echo "unknown argument"
     fi
