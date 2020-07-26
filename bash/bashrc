@@ -249,3 +249,18 @@ function eth() {
 function bat() {
     acpi -b
 }
+
+# mount usb
+function musb() {
+    dev=$(sudo fdisk -l | grep 'Ultra Fit' -B 1 | head -n 1 | grep -oP '/dev/[^:]+')
+    p=1
+    sudo mount $dev$p /mnt/Portable
+}
+
+# unmount usb
+function umusb() {
+    dev=$(sudo fdisk -l | grep 'Ultra Fit' -B 1 | head -n 1 | grep -oP '/dev/[^:]+')
+    p=1
+    sudo udisksctl unmount -b $dev$p
+    sudo udisksctl power-off -b $dev
+}

@@ -76,4 +76,4 @@ bspc config borderless_monocle    true
 
 # control
 bspc config focus_follows_pointer true
-bspc config pointer_motion_interval 4ms
+bspc config pointer_motion_interval 4
