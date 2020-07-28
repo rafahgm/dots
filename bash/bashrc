@@ -10,7 +10,7 @@ shopt -s direxpand
 #   Env
 #
 
-export GOPATH="$HOME/Programming/Go"
+export GOPATH="/mnt/Portable/Programming/Go"
 export JAVA_HOME=/usr/lib64/openjdk-8
 export QT_QPA_PLATFORMTHEME=qt5ct
 

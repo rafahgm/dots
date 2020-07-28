@@ -52,7 +52,7 @@
             "state": "true",
             "input-gain": "0",
             "output-gain": "0",
-            "amount": "8",
+            "amount": "6",
             "harmonics": "8.5",
             "scope": "100",
             "floor": "10",
