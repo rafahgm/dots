@@ -40,7 +40,7 @@ alert = #f00
 
 [bar/main]
 width = 100%
-height = 40
+height = 50
 bottom = true
 wm-restack = bspwm
 
@@ -57,15 +57,14 @@ padding-right = 5
 module-margin-left = 5
 module-margin-right = 5
 
-font-0 = Inter Medium:size=9;3
-font-1 = Inter SemiBold:size=9;3
-font-2 = Font Awesome 5 Brands:size=9;3
-font-3 = Font Awesome 5 Free:size=9;3
-font-4 = Font Awesome 5 Free Solid:size=9;3
+font-0 = Inter Medium:size=11;3
+font-1 = Inter SemiBold:size=11;3
+font-2 = Font Awesome 5 Brands:size=11;3
+font-3 = Font Awesome 5 Free:size=11;3
+font-4 = Font Awesome 5 Free Solid:size=11;3
 
 modules-left = bspwm xwindow
-modules-center =
-modules-right = song pulseaudio date
+modules-right = battery song pulseaudio date
 
 ;tray-position = right
 ;tray-padding = 2
@@ -136,34 +135,25 @@ label-muted-foreground = #666
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 98
+full-at = 95
 
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging = "<animation-charging>  <label-charging>"
+format-discharging = "<ramp-capacity>  <label-discharging>"
 
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-full-prefix = 
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-1}
-format-full-underline = ${self.format-charging-underline}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-1}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-1}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
 animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-1}
-animation-discharging-framerate = 750
 
 [settings]
 screenchange-reload = true
