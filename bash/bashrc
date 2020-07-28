@@ -10,7 +10,7 @@ shopt -s direxpand
 #   Env
 #
 
-export GOPATH="/mnt/Portable/Programming/Go"
+export GOPATH=/mnt/Portable/Programming/Go
 export JAVA_HOME=/usr/lib64/openjdk-8
 export QT_QPA_PLATFORMTHEME=qt5ct
 
@@ -224,7 +224,7 @@ function wifi() {
         nmcli c down id "$2"
     elif [ "$1" == "status" ]; then # list active connections
         nmcli c s
-    elif [ "$1" == "gui" ]; then
+    elif [ "$1" == "gui" ]; then # open wifi gui
         gnome-control-center --search=wifi
     elif [ "$1" == "help" ]; then # remove from found devices
         echo "on"

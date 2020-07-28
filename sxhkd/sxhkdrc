@@ -28,7 +28,7 @@ super + b
 
 # Nautilus
 super + e
-	nautilus -w
+	sh ~/.config/script/home_rofi.sh
 
 # Firefox
 super + {shift + r, r}
