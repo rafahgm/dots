@@ -123,7 +123,6 @@ label = "%date%, %time%"
 
 [module/pulseaudio]
 type = internal/pulseaudio
-sink = alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2
 
 format-volume = "<label-volume>"
 label-volume = "  %percentage%%"
