@@ -49,11 +49,11 @@ super + ctrl + shift + l
 
 # Increase volume
 XF86AudioRaiseVolume
-    amixer -q sset Master 5%+
+	pactl set-sink-volume @DEFAULT_SINK@ +10%
 
 # Decrease volume
 XF86AudioLowerVolume
-	amixer -q sset Master 5%-
+	pactl set-sink-volume @DEFAULT_SINK@ -10%
 
 # Toggle mute
 XF86AudioMute
