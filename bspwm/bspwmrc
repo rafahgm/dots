@@ -36,7 +36,7 @@ start amixer set Master 50%
 start pulseeffects --gapplication-service
 
 # polybar
-start polybar main -r
+start polybar main
 
 # playerctl
 start playerctld

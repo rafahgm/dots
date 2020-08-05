@@ -61,6 +61,8 @@ prog="$usb/Programming"
 dls="$HOME/Downloads"
 cfg="$HOME/.config"
 
+gospace="$GOPATH/src/github.com/barjoco"
+
 alias home='cdr "$HOME"'
 alias docs='cdr "$docs"'
 alias pics='cdr "$pics"'
@@ -240,9 +242,30 @@ function wifi() {
     fi
 }
 
-# ethernet
-function eth() {
-    echo "todo"
+# general network commands
+function nw() {
+    if test "$1" = "status"; then
+        nmcli g status
+    elif test "$1" = "hostname"; then
+        nmcli g hostname
+    elif test "$1" = "on"; then
+        nmcli n on
+    elif test "$1" = "off"; then
+        nmcli n off
+    elif test "$1" = "active"; then
+        nmcli c show --active
+    elif test "$1" = "devices"; then
+        nmcli d status
+    elif test "$1" = "help"; then
+        echo "status"
+        echo "hostname"
+        echo "on"
+        echo "off"
+        echo "active"
+        echo "devices"
+    else
+        echo "unknown argument"
+    fi
 }
 
 # battery
@@ -263,4 +286,14 @@ function umusb() {
     p=1
     sudo udisksctl unmount -b $dev$p
     sudo udisksctl power-off -b $dev
+}
+
+# make gtk theme work in flatpaks
+function flatgtk() {
+    for app in ~/.var/app/*; do
+        echo "$app"
+        gtkDir="$app/config/gtk-3.0"
+        mkdir -p "$gtkDir"
+        cp ~/.config/gtk-3.0/settings.ini "$gtkDir"
+    done
 }

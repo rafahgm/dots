@@ -10,7 +10,7 @@ text/html=firefox.desktop
 
 [Added Associations]
 application/x-java-archive=java-8-jar.desktop;
-application/pdf=firefox.desktop;
+application/pdf=firefox.desktop;org.gnome.gedit.desktop;
 inode/directory=vscode-oss.desktop;org.gnome.Nautilus.desktop;
 video/mp4=io.github.GnomeMpv.desktop;firefox.desktop;
 image/png=gimp.desktop;
@@ -21,3 +21,4 @@ application/x-shellscript=vscode-oss.desktop;
 text/csv=vscode-oss.desktop;
 text/plain=vscode-oss.desktop;
 text/x-go=vscode-oss.desktop;
+image/svg+xml=firefox.desktop;
