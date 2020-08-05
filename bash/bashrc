@@ -289,6 +289,7 @@ function umusb() {
 }
 
 # make gtk theme work in flatpaks
+# install org.gtk.Gtk3theme.Plata-Noir-Compact
 function flatgtk() {
     for app in ~/.var/app/*; do
         echo "$app"
