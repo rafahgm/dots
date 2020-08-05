@@ -29,9 +29,6 @@ start picom --experimental-backends
 # notifications
 start dunst
 
-# set default volume
-start amixer set Master 50%
-
 # pulseeffects daemon
 start pulseeffects --gapplication-service
 
@@ -46,14 +43,14 @@ start playerctld
 #   Startup run commands
 #
 
+# starting volume
+pactl set-sink-volume @DEFAULT_SINK@ 50%
+
 # xrandr set 165hz refresh rate
 xrandr --output DP-4 --mode 1920x1080 --rate 164.92
 
 # root window cursor
 xsetroot -cursor_name left_ptr
-
-# starting volume
-pactl set-sink-volume @DEFAULT_SINK@ 50%
 
 
 #
