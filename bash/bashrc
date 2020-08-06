@@ -5,6 +5,7 @@
 #
 
 shopt -s direxpand
+set +H
 
 #
 #   Env

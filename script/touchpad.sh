@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # get touchpad ID
 touchpadId=$(xinput list | grep -oP "1A581000:00 06CB:CDA3 Touchpad\s*id=\K\d*")

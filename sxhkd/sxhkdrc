@@ -18,6 +18,10 @@ super + Escape
 super + Return
 	alacritty
 
+# Alacritty floating
+super + shift + Return
+	sh ~/.config/script/float.sh alacritty
+
 # Rofi
 super + {d, Tab, grave}
 	rofi -show {drun, windowcd, window} -show-icons
@@ -31,7 +35,7 @@ super + e
 	sh ~/.config/script/home_rofi.sh
 
 # Firefox
-super + {shift + r, r}
+super + {shift + i, i}
 	firefox {--private-window, --new-window}
 
 # Screenlock
@@ -41,6 +45,11 @@ super + ctrl + shift + l
 # Flameshot
 {Print, shift + Print}
 	flameshot {gui, full -p /home/adam/Pictures}
+
+# Bitwarden
+super + p
+	sh ~/.config/script/bitwarden.sh
+
 
 
 #
@@ -130,10 +139,6 @@ super + ctrl + {m,x,y,z}
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
-
 # focus the next/previous node in the current desktop
 super + {_,shift + }c
 	bspc node -f {next,prev}.local
@@ -145,12 +150,6 @@ super + bracket{left,right}
 # focus the last node/desktop
 alt + {Tab,grave}
 	bspc {node,desktop} -f last
-
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
