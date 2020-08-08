@@ -8,6 +8,15 @@ shopt -s direxpand
 set +H
 
 #
+#   Colours
+#
+
+lblue='\033[01;36m'
+blue='\033[01;35m'
+clear='\033[0m'
+
+
+#
 #   Env
 #
 
@@ -26,8 +35,6 @@ export PATH="$PATH":"$GOPATH/bin":"$JAVA_HOME/bin":"$SPICETIFY_INSTALL"
 #   Prompt
 #
 
-blue='\033[01;35m'
-clear='\033[0m'
 title='\e]0;Alacritty - \w\a'
 export PS1="\[$blue\]\W \[$clear\]\$ \[$(echo -e "$title")\]"
 
@@ -78,8 +85,24 @@ alias gospace='cdr "$GOPATH/src/github.com/barjoco"'
 #   Functions
 #
 
+# check updates
+function chkup() {
+    # eopkg
+    echo -e "${lblue}Eopkg:${clear}"
+    eopkg lu
+    echo
+    # flatpak
+    echo -e "${lblue}Flatpak:${clear}"
+    flatpak update
+    echo
+    # spicetify
+    echo -e "${lblue}Spicetify:${clear}"
+    latest=$(curl -s https://api.github.com/repos/khanhas/spicetify-cli/releases/latest | jq -r ".tag_name")
+    current="v$(spicetify -v)"
+    test $latest = $current && echo "Up to date." || echo "Needs updating."
+}
+
 # change directory and show some recently modified files
-lblue='\033[01;36m'
 function cdr() {
     cd "$1"
     pwd
