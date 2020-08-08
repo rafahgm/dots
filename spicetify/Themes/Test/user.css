@@ -20,6 +20,6 @@
     border-radius: 0.25rem;
 }
 
-.button-green.button-play.current.playing {
+.button-green.button-play {
     background: linear-gradient(#9bcdff, #4e6bff);
 }
