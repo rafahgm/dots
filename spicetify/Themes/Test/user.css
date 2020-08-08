@@ -2,24 +2,29 @@
     font-family: "Inter";
 }
 
+/* Footer */
 #view-player-footer {
     background-color: #191b21;
 }
 
+/* Shadows on scrolling text */
 .scroll-text-container::before, .scroll-text-container::after {
     display: none;
 }
 
-#list-placeholder > div:nth-child(1) > table > tbody > tr:hover .tl-explicit .label, .tl-explicit .label {
+/* Explicit label */
+.added.tl-row .tl-explicit .label {
     color: #4e6bff !important;
     border: 1px solid #4e6bff !important;
 }
 
+/* Small image in bottom left */
 .cover-image-container {
     overflow: hidden;
     border-radius: 0.25rem;
 }
 
-.button-green.button-play {
-    background: linear-gradient(#9bcdff, #4e6bff);
+/* Round green buttons */
+.button-green {
+    background: linear-gradient(#9bcdff, #4e6bff) !important;
 }
