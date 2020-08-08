@@ -14,12 +14,13 @@ set +H
 export GOPATH=/mnt/Portable/Programming/Go
 export JAVA_HOME=/usr/lib64/openjdk-8
 export QT_QPA_PLATFORMTHEME=qt5ct
+export SPICETIFY_INSTALL="/home/adam/spicetify-cli"
 
 #
 #   Path
 #
 
-export PATH="$PATH":"$GOPATH/bin":"$JAVA_HOME/bin"
+export PATH="$PATH":"$GOPATH/bin":"$JAVA_HOME/bin":"$SPICETIFY_INSTALL"
 
 #
 #   Prompt
@@ -62,8 +63,6 @@ prog="$usb/Programming"
 dls="$HOME/Downloads"
 cfg="$HOME/.config"
 
-gospace="$GOPATH/src/github.com/barjoco"
-
 alias home='cdr "$HOME"'
 alias docs='cdr "$docs"'
 alias pics='cdr "$pics"'
@@ -73,6 +72,7 @@ alias uni='cdr "$uni"'
 alias prog='cdr "$prog"'
 alias dls='cdr "$dls"'
 alias cfg='cdr "$cfg"'
+alias gospace='cdr "$GOPATH/src/github.com/barjoco"'
 
 #
 #   Functions

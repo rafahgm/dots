@@ -1,0 +1,25 @@
+* {
+    font-family: "Inter";
+}
+
+#view-player-footer {
+    background-color: #191b21;
+}
+
+.scroll-text-container::before, .scroll-text-container::after {
+    display: none;
+}
+
+#list-placeholder > div:nth-child(1) > table > tbody > tr:hover .tl-explicit .label, .tl-explicit .label {
+    color: #4e6bff !important;
+    border: 1px solid #4e6bff !important;
+}
+
+.cover-image-container {
+    overflow: hidden;
+    border-radius: 0.25rem;
+}
+
+.button-green.button-play.current.playing {
+    background: linear-gradient(#9bcdff, #4e6bff);
+}

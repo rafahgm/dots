@@ -24,6 +24,8 @@
 !rofi/**
 !script
 !script/**
+!spicetify
+!spicetify/**
 !sxhkd
 !sxhkd/**
 !mimeapps.list
