@@ -176,8 +176,9 @@ function trim() {
 }
 
 # convert to webm - use: towebm inputfile.mp4 outputfilename
+# (this is lossy, remove -lossless 0 to make it lossless)
 function towebm() {
-    ffmpeg -i "$1" "$2".webm
+    ffmpeg -i "$1" -lossless 0 "$2".webm
 }
 
 # get volume
