@@ -21,7 +21,7 @@ start() {
 start sxhkd
 
 # wallpaper
-start feh --bg-scale /mnt/Portable/Pictures/Wallpapers/shadow.jpg
+start feh --bg-scale /mnt/Portable/Pictures/Wallpapers/blinds.jpg
 
 # compositor
 start picom --experimental-backends
