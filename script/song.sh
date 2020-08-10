@@ -2,10 +2,10 @@
 
 if [ "$(playerctl -l)" == "playerctld" ]; then
     echo
-elif [ $(playerctl status) != "Paused" ]; then
-    title=$(playerctl metadata title)
-    artist=$(playerctl metadata artist)
-    echo "$title"
+elif [ $(playerctl --player=spotify status) != "Paused" ]; then
+    title=$(playerctl --player=spotify metadata title)
+    artist=$(playerctl --player=spotify metadata artist)
+    echo "$title by $artist"
 else
     echo "Paused"
 fi
