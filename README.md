@@ -7,7 +7,7 @@
 **Compositor**:    picom  
 **Notifications**: dunst  
 **Terminal**:      alacritty  
-**GTK**:           solus  
+**GTK**:           plata-noir-compact  
 **Icons**:         adwaita  
 **Cursor**:        adwaita  
 
