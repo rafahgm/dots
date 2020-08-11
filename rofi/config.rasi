@@ -158,10 +158,6 @@ window {
     background-color: rgba(0, 0, 0, 0.75);
 }
 
-mainbox {
-    border-radius: 8px;
-}
-
 inputbar {
     padding: 0 0 5px 0;
 	margin: 0 0 5px 0;
