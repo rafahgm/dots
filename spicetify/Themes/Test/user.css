@@ -13,15 +13,15 @@
 }
 
 /* Explicit label */
-.tl-explicit .label {
+#list-placeholder tr.added.selected.selection-focus.tl-row .tl-explicit .label, #list-placeholder tr:hover .tl-explicit .label, .tl-explicit .label {
     color: #4e6bff !important;
     border: 1px solid #4e6bff !important;
 }
 
 /* Small image in bottom left */
 .cover-image-container {
-    overflow: hidden;
-    border-radius: 0.25rem;
+    overflow: hidden !important;
+    border-radius: 0.25rem !important;
 }
 
 /* Round green buttons */
