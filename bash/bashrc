@@ -15,7 +15,6 @@ lblue='\033[01;36m'
 blue='\033[01;35m'
 clear='\033[0m'
 
-
 #
 #   Env
 #
@@ -322,4 +321,17 @@ function flatgtk() {
         mkdir -p "$gtkDir"
         cp ~/.config/gtk-3.0/settings.ini "$gtkDir"
     done
+}
+
+# notifications pause/resume
+function nots() {
+    if test "$1" = "resume"; then
+        notify-send DUNST_COMMAND_RESUME
+        echo "notifications resumed"
+    elif test "$1" = "pause"; then
+        notify-send DUNST_COMMAND_PAUSE
+        echo "notifications paused"
+    else
+        echo "unknown arg"
+    fi
 }
