@@ -16,7 +16,7 @@ colr() {
 }
 
 title='\e]0;Alacritty - \w\a'
-export PS1="$(colr 5)\W $(colr -1)\$ \[$(echo -e "$title")\]"
+export PS1="\[$(colr 5)\W\] \[$(colr -1)\$\] \[$(echo -e "$title")\]"
 
 #
 #   Env
@@ -78,15 +78,15 @@ alias gohome='cdr "$GOPATH/src/github.com/barjoco"'
 # check updates
 chkup() {
     # eopkg
-    echo -e "${lblue}Eopkg:${clear}"
+    echo -e "$(colr 6)Eopkg:$(colr -1)"
     eopkg lu
     echo
     # flatpak
-    echo -e "${lblue}Flatpak:${clear}"
+    echo -e "$(colr 6)Flatpak:$(colr -1)"
     flatpak update
     echo
     # spicetify
-    echo -e "${lblue}Spicetify:${clear}"
+    echo -e "$(colr 6)Spicetify:$(colr -1)"
     latest=$(curl -s https://api.github.com/repos/khanhas/spicetify-cli/releases/latest | jq -r '.tag_name')
     current="v$(spicetify -v)"
     test $latest = $current && echo 'Up to date.' || echo 'Needs updating.'
