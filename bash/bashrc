@@ -22,7 +22,7 @@ clear='\033[0m'
 export GOPATH=/mnt/Portable/Programming/Go
 export JAVA_HOME=/usr/lib64/openjdk-8
 export QT_QPA_PLATFORMTHEME=qt5ct
-export SPICETIFY_INSTALL="/home/adam/spicetify-cli"
+export SPICETIFY_INSTALL='/home/adam/spicetify-cli'
 
 #
 #   Path
@@ -45,20 +45,14 @@ alias ls='exa -stype'    # sort alphabetically and by type
 alias ll='exa -stype -l' # the same, with more detail
 alias lr='exa -rsmod'    # list recently modified files, newest first
 alias open='xdg-open'
-
-#
-#   Applications
-#
-
 alias code='detach code-oss'
-alias colpick='detachx gcolor3'
 alias files='detach nautilus'
 
 #
 #   Locations
 #
 
-usb="/mnt/Portable"
+usb='/mnt/Portable'
 
 docs="$usb/Documents"
 pics="$usb/Pictures"
@@ -69,6 +63,7 @@ prog="$usb/Programming"
 dls="$HOME/Downloads"
 cfg="$HOME/.config"
 
+alias usb='cdr "$usb"'
 alias home='cdr "$HOME"'
 alias docs='cdr "$docs"'
 alias pics='cdr "$pics"'
@@ -78,14 +73,14 @@ alias uni='cdr "$uni"'
 alias prog='cdr "$prog"'
 alias dls='cdr "$dls"'
 alias cfg='cdr "$cfg"'
-alias gospace='cdr "$GOPATH/src/github.com/barjoco"'
+alias gohome='cdr "$GOPATH/src/github.com/barjoco"'
 
 #
 #   Functions
 #
 
 # check updates
-function chkup() {
+chkup() {
     # eopkg
     echo -e "${lblue}Eopkg:${clear}"
     eopkg lu
@@ -96,191 +91,191 @@ function chkup() {
     echo
     # spicetify
     echo -e "${lblue}Spicetify:${clear}"
-    latest=$(curl -s https://api.github.com/repos/khanhas/spicetify-cli/releases/latest | jq -r ".tag_name")
+    latest=$(curl -s https://api.github.com/repos/khanhas/spicetify-cli/releases/latest | jq -r '.tag_name')
     current="v$(spicetify -v)"
-    test $latest = $current && echo "Up to date." || echo "Needs updating."
+    test $latest = $current && echo 'Up to date.' || echo 'Needs updating.'
 }
 
 # change directory and show some recently modified files
-function cdr() {
+cdr() {
     cd "$1"
     pwd
-    echo ''
+    echo
     echo -e "${lblue}Recently modified:${clear}"
     lr --color=always | head
-    echo ''
+    echo
 }
 
 # run process detached
-function detach() {
+detach() {
     ("$@" >/dev/null 2>&1 &)
 }
 
 # run process detached then exit
-function detachx() {
+detachx() {
     detach "$@" && exit >/dev/null 2>&1
 }
 
 # convert to pdf - use: topdf myfile.docx
-function topdf() {
+topdf() {
     lowriter --convert-to pdf "$@"
 }
 
 # open in firefox - use: goto example.com
-function goto() {
+goto() {
     for x in "$@"; do
         detach firefox "$x"
     done
 }
 
-# search google in firefox - use: search "blah blah"
-function search() {
-    if [ "$1" != "" ]; then
-        q=$(echo "$1" | sed s/" "/+/g)
-        detachx firefox https://www.google.co.uk/search?q="$q"
-    fi
+# search google in firefox - use: search foo bar baz
+search() {
+    detachx firefox "https://www.google.co.uk/search?q=$(echo "$@" | sed s/" "/+/g)"
 }
 
 # remove spaces from filenames - use: rmspaces *.pdf
-function rmspaces() {
+rmspaces() {
     for f in "$@"; do
         dir=$(dirname "$f")
         bn=$(basename "$f")
         bnFormatted=$(echo "$bn" | tr " " _)
 
-        mv "$f" "$dir"/$bnFormatted
+        mv "$f" "$dir/$bnFormatted"
     done
 }
 
 # zip directories - use: zipdir mydir myotherdir
-function zipdir() {
+zipdir() {
     for f in "$@"; do
         zip -r "$f" "$f"
     done
 }
 
 # lamp restart
-function lampr() {
+lampr() {
     sudo systemctl restart httpd php-fpm mariadb
 }
 
 # lamp stop
-function lampstop() {
+lampstop() {
     sudo systemctl stop httpd php-fpm mariadb
 }
 
 # trim video - use: trim video.mp4 00:00:30 00:00:05 (filename, start timestamp, length of video)
-function trim() {
+trim() {
     ffmpeg -ss $2 -i "$1" -t $3 -vcodec copy -acodec copy "trimmed-$1"
 }
 
 # convert to webm - use: towebm inputfile.mp4 outputfilename
 # (this is lossy, remove -lossless 0 to make it lossless)
-function towebm() {
+towebm() {
     ffmpeg -i "$1" -lossless 0 "$2".webm
 }
 
 # get volume
-function vol() {
+vol() {
     amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }'
 }
 
 # increase volume
-function volup() {
-    amixer -q sset Master 5%+
+volup() {
+    pactl set-sink-volume @DEFAULT_SINK@ +10%
 }
 
 # decrease volume
-function voldown() {
-    amixer -q sset Master 5%-
+voldown() {
+    pactl set-sink-volume @DEFAULT_SINK@ -10%
 }
 
 # bluetooth
-function bt() {
-    if [ "$1" == "start" ]; then # bluetooth on
+bt() {
+    if [ "$1" == 'start' ]; then # bluetooth on
         sudo systemctl start bluetooth
-    elif [ "$1" == "stop" ]; then # bluetooth off
+    elif [ "$1" == 'stop' ]; then # bluetooth off
         sudo systemctl stop bluetooth
-    elif [ "$1" == "enable" ]; then # bluetooth on on startup
+    elif [ "$1" == 'enable' ]; then # bluetooth on on startup
         sudo systemctl enable bluetooth
-    elif [ "$1" == "disable" ]; then # bluetooth off on startup
+    elif [ "$1" == 'disable' ]; then # bluetooth off on startup
         sudo systemctl disable bluetooth
-    elif [ "$1" == "status" ]; then # bluetooth status
+    elif [ "$1" == 'status' ]; then # bluetooth status
         systemctl is-active bluetooth
-    elif [ "$1" == "devices" ]; then # found devices
+    elif [ "$1" == 'devices' ]; then # found devices
         bluetoothctl devices
-    elif [ "$1" == "scan" ]; then # find new devices
+    elif [ "$1" == 'scan' ]; then # find new devices
         bluetoothctl scan on
-    elif [ "$1" == "connect" ]; then # connect by mac addr
+    elif [ "$1" == 'connect' ]; then # connect by mac addr
         bluetoothctl connect "$2"
-    elif [ "$1" == "disconnect" ]; then # disconnect
+    elif [ "$1" == 'disconnect' ]; then # disconnect
         bluetoothctl disconnect "$2"
-    elif [ "$1" == "remove" ]; then # remove from found devices
+    elif [ "$1" == 'remove' ]; then # remove from found devices
         bluetoothctl remove "$2"
-    elif [ "$1" == "help" ]; then # remove from found devices
-        echo "start"
-        echo "stop"
-        echo "enable"
-        echo "disable"
-        echo "status"
-        echo "devices"
-        echo "scan"
-        echo "connect"
-        echo "disconnect"
-        echo "remove"
+    elif [ "$1" == 'help' ]; then # help
+        echo 'start'
+        echo 'stop'
+        echo 'enable'
+        echo 'disable'
+        echo 'status'
+        echo 'devices'
+        echo 'scan'
+        echo 'connect'
+        echo 'disconnect'
+        echo 'remove'
     else
-        echo "unknown argument"
+        echo 'unknown argument'
     fi
 }
 
 # wifi
-function wifi() {
-    if [ "$1" == "on" ]; then # turn wifi on
+wifi() {
+    if [ "$1" == 'on' ]; then # turn wifi on
         nmcli r wifi on
-    elif [ "$1" == "off" ]; then # turn wifi off
+    elif [ "$1" == 'off' ]; then # turn wifi off
         nmcli r wifi off
-    elif [ "$1" == "devices" ]; then # list network devices
+    elif [ "$1" == 'devices' ]; then # list network devices
         nmcli d
-    elif [ "$1" == "scan" ]; then # scan for wifi devices
+    elif [ "$1" == 'scan' ]; then # scan for wifi devices
         nmcli d wifi rescan
         nmcli d wifi list
-    elif [ "$1" == "connect" ]; then # connect "ssid" "password"
-        nmcli d wifi connect "$2" password "$3"
-    elif [ "$1" == "disconnect" ]; then # disconnect "ssid"
+    elif [ "$1" == 'connect' ]; then # connect to network
+        read -p 'SSID: ' ssid
+        read -sp 'Password: ' password
+        echo
+        nmcli d wifi connect "$ssid" password "$password"
+    elif [ "$1" == 'disconnect' ]; then # disconnect from network
         nmcli c down id "$2"
-    elif [ "$1" == "status" ]; then # list active connections
+    elif [ "$1" == 'status' ]; then # list active connections
         nmcli c s
-    elif [ "$1" == "gui" ]; then # open wifi gui
-        gnome-control-center --search=wifi
-    elif [ "$1" == "help" ]; then # remove from found devices
-        echo "on"
-        echo "off"
-        echo "devices"
-        echo "scan"
-        echo "connect"
-        echo "disconnect"
-        echo "status"
-        echo "gui"
+    elif [ "$1" == 'gui' ]; then # open wifi gui
+        detach gnome-control-center --search=wifi
+    elif [ "$1" == 'help' ]; then # help
+        echo 'on'
+        echo 'off'
+        echo 'devices'
+        echo 'scan'
+        echo 'connect'
+        echo 'disconnect'
+        echo 'status'
+        echo 'gui'
     else
-        echo "unknown argument"
+        echo 'unknown argument'
     fi
 }
 
 # general network commands
-function nw() {
-    if test "$1" = "status"; then
+nw() {
+    if [ "$1" = "status" ]; then
         nmcli g status
-    elif test "$1" = "hostname"; then
+    elif [ "$1" = "hostname" ]; then
         nmcli g hostname
-    elif test "$1" = "on"; then
+    elif [ "$1" = "on" ]; then
         nmcli n on
-    elif test "$1" = "off"; then
+    elif [ "$1" = "off" ]; then
         nmcli n off
-    elif test "$1" = "active"; then
+    elif [ "$1" = "active" ]; then
         nmcli c show --active
-    elif test "$1" = "devices"; then
+    elif [ "$1" = "devices" ]; then
         nmcli d status
-    elif test "$1" = "help"; then
+    elif [ "$1" = "help" ]; then
         echo "status"
         echo "hostname"
         echo "on"
@@ -293,28 +288,14 @@ function nw() {
 }
 
 # battery
-function bat() {
+bat() {
     acpi -b
 }
 
-# mount usb
-function musb() {
-    dev=$(sudo fdisk -l | grep 'Ultra Fit' -B 1 | head -n 1 | grep -oP '/dev/[^:]+')
-    p=1
-    sudo mount $dev$p /mnt/Portable
-}
 
-# unmount usb
-function umusb() {
-    dev=$(sudo fdisk -l | grep 'Ultra Fit' -B 1 | head -n 1 | grep -oP '/dev/[^:]+')
-    p=1
-    sudo udisksctl unmount -b $dev$p
-    sudo udisksctl power-off -b $dev
-}
-
-# make gtk theme work in flatpaks
+# make gtk theme work in flatpak apps
 # install org.gtk.Gtk3theme.Plata-Noir-Compact
-function flatgtk() {
+flatpakgtk() {
     for app in ~/.var/app/*; do
         echo "$app"
         gtkDir="$app/config/gtk-3.0"
@@ -324,14 +305,14 @@ function flatgtk() {
 }
 
 # notifications pause/resume
-function nots() {
-    if test "$1" = "resume"; then
+nots() {
+    if [ "$1" = "resume" ]; then
         notify-send DUNST_COMMAND_RESUME
         echo "notifications resumed"
-    elif test "$1" = "pause"; then
+    elif [ "$1" = "pause" ]; then
         notify-send DUNST_COMMAND_PAUSE
         echo "notifications paused"
     else
-        echo "unknown arg"
+        echo "use: nots resume|pause"
     fi
 }
