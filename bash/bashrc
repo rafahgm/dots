@@ -318,3 +318,17 @@ nots() {
         echo 'unknown argument'
     fi
 }
+
+ghosts() {
+    echo -e "$(tput setaf 1)    ▄▄▄      $(tput setaf 2)    ▄▄▄      $(tput setaf 3)    ▄▄▄      $(tput setaf 4)    ▄▄▄      $(tput setaf 5)    ▄▄▄      $(tput setaf 6)    ▄▄▄     "
+    echo -e "$(tput setaf 1)   ▀█▀██  ▄  $(tput setaf 2)   ▀█▀██  ▄  $(tput setaf 3)   ▀█▀██  ▄  $(tput setaf 4)   ▀█▀██  ▄  $(tput setaf 5)   ▀█▀██  ▄  $(tput setaf 6)   ▀█▀██  ▄ "
+    echo -e "$(tput setaf 1) ▀▄██████▀   $(tput setaf 2) ▀▄██████▀   $(tput setaf 3) ▀▄██████▀   $(tput setaf 4) ▀▄██████▀   $(tput setaf 5) ▀▄██████▀   $(tput setaf 6) ▀▄██████▀  "
+    echo -e "$(tput setaf 1)    ▀█████   $(tput setaf 2)    ▀█████   $(tput setaf 3)    ▀█████   $(tput setaf 4)    ▀█████   $(tput setaf 5)    ▀█████   $(tput setaf 6)    ▀█████  "
+    echo -e "$(tput setaf 1)       ▀▀▀▀▄ $(tput setaf 2)       ▀▀▀▀▄ $(tput setaf 3)       ▀▀▀▀▄ $(tput setaf 4)       ▀▀▀▀▄ $(tput setaf 5)       ▀▀▀▀▄ $(tput setaf 6)       ▀▀▀▀▄"
+    echo -e ""
+    echo -e "$(tput setaf 9)    ▄▄▄      $(tput setaf 10)    ▄▄▄      $(tput setaf 11)    ▄▄▄      $(tput setaf 12)    ▄▄▄      $(tput setaf 13)    ▄▄▄      $(tput setaf 14)    ▄▄▄     "
+    echo -e "$(tput setaf 9)   ▀█▀██  ▄  $(tput setaf 10)   ▀█▀██  ▄  $(tput setaf 11)   ▀█▀██  ▄  $(tput setaf 12)   ▀█▀██  ▄  $(tput setaf 13)   ▀█▀██  ▄  $(tput setaf 14)   ▀█▀██  ▄ "
+    echo -e "$(tput setaf 9) ▀▄██████▀   $(tput setaf 10) ▀▄██████▀   $(tput setaf 11) ▀▄██████▀   $(tput setaf 12) ▀▄██████▀   $(tput setaf 13) ▀▄██████▀   $(tput setaf 14) ▀▄██████▀  "
+    echo -e "$(tput setaf 9)    ▀█████   $(tput setaf 10)    ▀█████   $(tput setaf 11)    ▀█████   $(tput setaf 12)    ▀█████   $(tput setaf 13)    ▀█████   $(tput setaf 14)    ▀█████  "
+    echo -e "$(tput setaf 9)       ▀▀▀▀▄ $(tput setaf 10)       ▀▀▀▀▄ $(tput setaf 11)       ▀▀▀▀▄ $(tput setaf 12)       ▀▀▀▀▄ $(tput setaf 13)       ▀▀▀▀▄ $(tput setaf 14)       ▀▀▀▀▄"
+}
