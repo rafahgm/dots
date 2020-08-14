@@ -263,27 +263,27 @@ wifi() {
 
 # general network commands
 nw() {
-    if [ "$1" = "status" ]; then
+    if [ "$1" = 'status' ]; then
         nmcli g status
-    elif [ "$1" = "hostname" ]; then
+    elif [ "$1" = 'hostname' ]; then
         nmcli g hostname
-    elif [ "$1" = "on" ]; then
+    elif [ "$1" = 'on' ]; then
         nmcli n on
-    elif [ "$1" = "off" ]; then
+    elif [ "$1" = 'off' ]; then
         nmcli n off
-    elif [ "$1" = "active" ]; then
+    elif [ "$1" = 'active' ]; then
         nmcli c show --active
-    elif [ "$1" = "devices" ]; then
+    elif [ "$1" = 'devices' ]; then
         nmcli d status
-    elif [ "$1" = "help" ]; then
-        echo "status"
-        echo "hostname"
-        echo "on"
-        echo "off"
-        echo "active"
-        echo "devices"
+    elif [ "$1" = 'help' ]; then
+        echo 'status'
+        echo 'hostname'
+        echo 'on'
+        echo 'off'
+        echo 'active'
+        echo 'devices'
     else
-        echo "unknown argument"
+        echo 'unknown argument'
     fi
 }
 
@@ -291,7 +291,6 @@ nw() {
 bat() {
     acpi -b
 }
-
 
 # make gtk theme work in flatpak apps
 # install org.gtk.Gtk3theme.Plata-Noir-Compact
@@ -306,13 +305,16 @@ flatpakgtk() {
 
 # notifications pause/resume
 nots() {
-    if [ "$1" = "resume" ]; then
+    if [ "$1" = 'resume' ]; then
         notify-send DUNST_COMMAND_RESUME
-        echo "notifications resumed"
+        echo 'notifications resumed'
     elif [ "$1" = "pause" ]; then
         notify-send DUNST_COMMAND_PAUSE
-        echo "notifications paused"
+        echo 'notifications paused'
+    elif [ "$1" = 'help' ]; then
+        echo 'resume'
+        echo 'pause'
     else
-        echo "use: nots resume|pause"
+        echo 'unknown argument'
     fi
 }
