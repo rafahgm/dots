@@ -1,19 +1,22 @@
 #!/bin/bash
 
 #
-#   Shell options
+#   Shell
 #
 
 shopt -s direxpand
 set +H
 
-#
-#   Colours
-#
+colr() {
+    if [ "$1" = '-1' ]; then
+        tput sgr0
+    else
+        tput setaf "$1"
+    fi
+}
 
-lblue='\033[01;36m'
-blue='\033[01;35m'
-clear='\033[0m'
+title='\e]0;Alacritty - \w\a'
+export PS1="$(colr 5)\W $(colr -1)\$ \[$(echo -e "$title")\]"
 
 #
 #   Env
@@ -29,13 +32,6 @@ export SPICETIFY_INSTALL='/home/adam/spicetify-cli'
 #
 
 export PATH="$PATH":"$GOPATH/bin":"$JAVA_HOME/bin":"$SPICETIFY_INSTALL"
-
-#
-#   Prompt
-#
-
-title='\e]0;Alacritty - \w\a'
-export PS1="\[$blue\]\W \[$clear\]\$ \[$(echo -e "$title")\]"
 
 #
 #   Aliases
@@ -101,7 +97,7 @@ cdr() {
     cd "$1"
     pwd
     echo
-    echo -e "${lblue}Recently modified:${clear}"
+    echo -e "$(colr 6)Recently modified:$(colr -1)"
     lr --color=always | head
     echo
 }
@@ -319,16 +315,18 @@ nots() {
     fi
 }
 
+# prints ghosts
 ghosts() {
-    echo -e "$(tput setaf 1)    ▄▄▄      $(tput setaf 2)    ▄▄▄      $(tput setaf 3)    ▄▄▄      $(tput setaf 4)    ▄▄▄      $(tput setaf 5)    ▄▄▄      $(tput setaf 6)    ▄▄▄     "
-    echo -e "$(tput setaf 1)   ▀█▀██  ▄  $(tput setaf 2)   ▀█▀██  ▄  $(tput setaf 3)   ▀█▀██  ▄  $(tput setaf 4)   ▀█▀██  ▄  $(tput setaf 5)   ▀█▀██  ▄  $(tput setaf 6)   ▀█▀██  ▄ "
-    echo -e "$(tput setaf 1) ▀▄██████▀   $(tput setaf 2) ▀▄██████▀   $(tput setaf 3) ▀▄██████▀   $(tput setaf 4) ▀▄██████▀   $(tput setaf 5) ▀▄██████▀   $(tput setaf 6) ▀▄██████▀  "
-    echo -e "$(tput setaf 1)    ▀█████   $(tput setaf 2)    ▀█████   $(tput setaf 3)    ▀█████   $(tput setaf 4)    ▀█████   $(tput setaf 5)    ▀█████   $(tput setaf 6)    ▀█████  "
-    echo -e "$(tput setaf 1)       ▀▀▀▀▄ $(tput setaf 2)       ▀▀▀▀▄ $(tput setaf 3)       ▀▀▀▀▄ $(tput setaf 4)       ▀▀▀▀▄ $(tput setaf 5)       ▀▀▀▀▄ $(tput setaf 6)       ▀▀▀▀▄"
-    echo -e ""
-    echo -e "$(tput setaf 9)    ▄▄▄      $(tput setaf 10)    ▄▄▄      $(tput setaf 11)    ▄▄▄      $(tput setaf 12)    ▄▄▄      $(tput setaf 13)    ▄▄▄      $(tput setaf 14)    ▄▄▄     "
-    echo -e "$(tput setaf 9)   ▀█▀██  ▄  $(tput setaf 10)   ▀█▀██  ▄  $(tput setaf 11)   ▀█▀██  ▄  $(tput setaf 12)   ▀█▀██  ▄  $(tput setaf 13)   ▀█▀██  ▄  $(tput setaf 14)   ▀█▀██  ▄ "
-    echo -e "$(tput setaf 9) ▀▄██████▀   $(tput setaf 10) ▀▄██████▀   $(tput setaf 11) ▀▄██████▀   $(tput setaf 12) ▀▄██████▀   $(tput setaf 13) ▀▄██████▀   $(tput setaf 14) ▀▄██████▀  "
-    echo -e "$(tput setaf 9)    ▀█████   $(tput setaf 10)    ▀█████   $(tput setaf 11)    ▀█████   $(tput setaf 12)    ▀█████   $(tput setaf 13)    ▀█████   $(tput setaf 14)    ▀█████  "
-    echo -e "$(tput setaf 9)       ▀▀▀▀▄ $(tput setaf 10)       ▀▀▀▀▄ $(tput setaf 11)       ▀▀▀▀▄ $(tput setaf 12)       ▀▀▀▀▄ $(tput setaf 13)       ▀▀▀▀▄ $(tput setaf 14)       ▀▀▀▀▄"
+    echo -e "$(colr 1)    ▄▄▄      $(colr 2)    ▄▄▄      $(colr 3)    ▄▄▄      $(colr 4)    ▄▄▄      $(colr 5)    ▄▄▄      $(colr 6)    ▄▄▄     "
+    echo -e "$(colr 1)   ▀█▀██  ▄  $(colr 2)   ▀█▀██  ▄  $(colr 3)   ▀█▀██  ▄  $(colr 4)   ▀█▀██  ▄  $(colr 5)   ▀█▀██  ▄  $(colr 6)   ▀█▀██  ▄ "
+    echo -e "$(colr 1) ▀▄██████▀   $(colr 2) ▀▄██████▀   $(colr 3) ▀▄██████▀   $(colr 4) ▀▄██████▀   $(colr 5) ▀▄██████▀   $(colr 6) ▀▄██████▀  "
+    echo -e "$(colr 1)    ▀█████   $(colr 2)    ▀█████   $(colr 3)    ▀█████   $(colr 4)    ▀█████   $(colr 5)    ▀█████   $(colr 6)    ▀█████  "
+    echo -e "$(colr 1)       ▀▀▀▀▄ $(colr 2)       ▀▀▀▀▄ $(colr 3)       ▀▀▀▀▄ $(colr 4)       ▀▀▀▀▄ $(colr 5)       ▀▀▀▀▄ $(colr 6)       ▀▀▀▀▄"
+    echo
+    echo -e "$(colr 9)    ▄▄▄      $(colr 10)    ▄▄▄      $(colr 11)    ▄▄▄      $(colr 12)    ▄▄▄      $(colr 13)    ▄▄▄      $(colr 14)    ▄▄▄     "
+    echo -e "$(colr 9)   ▀█▀██  ▄  $(colr 10)   ▀█▀██  ▄  $(colr 11)   ▀█▀██  ▄  $(colr 12)   ▀█▀██  ▄  $(colr 13)   ▀█▀██  ▄  $(colr 14)   ▀█▀██  ▄ "
+    echo -e "$(colr 9) ▀▄██████▀   $(colr 10) ▀▄██████▀   $(colr 11) ▀▄██████▀   $(colr 12) ▀▄██████▀   $(colr 13) ▀▄██████▀   $(colr 14) ▀▄██████▀  "
+    echo -e "$(colr 9)    ▀█████   $(colr 10)    ▀█████   $(colr 11)    ▀█████   $(colr 12)    ▀█████   $(colr 13)    ▀█████   $(colr 14)    ▀█████  "
+    echo -e "$(colr 9)       ▀▀▀▀▄ $(colr 10)       ▀▀▀▀▄ $(colr 11)       ▀▀▀▀▄ $(colr 12)       ▀▀▀▀▄ $(colr 13)       ▀▀▀▀▄ $(colr 14)       ▀▀▀▀▄"
+    colr -1
 }
