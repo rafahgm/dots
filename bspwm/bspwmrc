@@ -21,7 +21,7 @@ start() {
 start sxhkd
 
 # wallpaper
-start feh --bg-scale /mnt/Portable/Pictures/Wallpapers/blinds.jpg
+start feh --bg-scale /mnt/Portable/Pictures/Wallpapers/Impender_Beach_1920x1080.png
 
 # compositor
 start picom --experimental-backends

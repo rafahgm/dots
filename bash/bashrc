@@ -16,7 +16,7 @@ colr() {
 }
 
 title='\e]0;Alacritty - \w\a'
-export PS1="\[$(colr 5)\W\] \[$(colr -1)\$\] \[$(echo -e "$title")\]"
+export PS1="\[$(colr 5)\]\W \[$(colr -1)\]\$ \[$(echo -e "$title")\]"
 
 #
 #   Env
@@ -58,6 +58,7 @@ uni="$usb/Uni"
 prog="$usb/Programming"
 dls="$HOME/Downloads"
 cfg="$HOME/.config"
+gospace="$GOPATH/src/github.com/barjoco"
 
 alias usb='cdr "$usb"'
 alias home='cdr "$HOME"'
@@ -69,7 +70,6 @@ alias uni='cdr "$uni"'
 alias prog='cdr "$prog"'
 alias dls='cdr "$dls"'
 alias cfg='cdr "$cfg"'
-alias gohome='cdr "$GOPATH/src/github.com/barjoco"'
 
 #
 #   Functions

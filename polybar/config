@@ -31,11 +31,11 @@
 ; 05% = 0D
 
 [colors]
-background-0 = #9A020408
-background-1 = #ff020408
+background-0 = #ff07070a
+background-1 = #ff242430
 foreground-0 = #fff
-foreground-1 = #666
-foreground-2 = #222
+foreground-1 = #747480
+foreground-2 = #373742
 alert = #f00
 
 [bar/main]
@@ -44,18 +44,18 @@ height = 40
 bottom = true
 wm-restack = bspwm
 
-background-0 = ${colors.background-0}
-background-1 = ${colors.background-1}
+background-0 = ${colors.background-1}
+background-1 = ${colors.background-0}
 foreground = ${colors.foreground-0}
 
 border-top-size = 1
-border-color = #0f0f0f
+border-color = #07070a
 
 padding-left = 0
-padding-right = 5
+padding-right = 4
 
-module-margin-left = 5
-module-margin-right = 5
+module-margin-left = 4
+module-margin-right = 4
 
 font-0 = Inter Medium:size=9;3
 font-1 = Inter SemiBold:size=9;3
@@ -64,7 +64,7 @@ font-3 = Font Awesome 5 Free:size=9;3
 font-4 = Font Awesome 5 Free Solid:size=9;3
 
 modules-left = bspwm xwindow
-modules-right = battery song pulseaudio date
+modules-right = battery song network pulseaudio date
 
 ;tray-position = right
 ;tray-padding = 2
@@ -75,6 +75,12 @@ scroll-down = bspwm-deskprev
 
 cursor-click = default
 cursor-scroll = default
+
+[module/network]
+type = custom/script
+exec = sh ~/.config/script/network.sh
+interval = 2
+label = "%output%"
 
 [module/song]
 type = custom/script

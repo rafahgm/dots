@@ -28,15 +28,15 @@ super + {d, Tab, grave}
 
 # Bookmark opener
 super + b
-	sh ~/.config/script/bookmarks.sh
+	sh ~/.config/script/rofi_bookmarks.sh
 
 # Nautilus
 super + e
-	sh ~/.config/script/home_rofi.sh
+	sh ~/.config/script/rofi_home.sh
 
 # Firefox
-super + {shift + i, i}
-	firefox {--private-window, --new-window}
+super + {r, shift + r}
+	firefox {--new-window, --private-window}
 
 # Screenlock
 super + ctrl + shift + l
@@ -49,7 +49,6 @@ super + ctrl + shift + l
 # Bitwarden
 super + p
 	sh ~/.config/script/bitwarden.sh
-
 
 
 #
