@@ -7,6 +7,7 @@ image/png=firefox.desktop;
 image/jpeg=firefox.desktop;
 text/plain=firefox.desktop;
 text/html=firefox.desktop
+audio/mpeg=io.github.GnomeMpv.desktop
 
 [Added Associations]
 application/x-java-archive=java-8-jar.desktop;
@@ -23,3 +24,5 @@ text/plain=vscode-oss.desktop;
 text/x-go=vscode-oss.desktop;
 image/svg+xml=firefox.desktop;
 application/x-desktop=vscode-oss.desktop;firefox.desktop;
+audio/mpeg=org.kde.kid3-qt.desktop;io.github.GnomeMpv.desktop;
+video/x-matroska=org.kde.kid3-qt.desktop;

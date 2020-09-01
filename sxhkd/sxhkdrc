@@ -35,7 +35,7 @@ super + e
 	sh ~/.config/script/rofi_home.sh
 
 # Firefox
-super + {r, shift + r}
+super + {i, shift + i}
 	firefox {--new-window, --private-window}
 
 # Screenlock
