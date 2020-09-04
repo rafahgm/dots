@@ -1,15 +1,12 @@
 #!/bin/sh
 
-eth="eno1"
-wifi="wlan1"
-
 check() {
-    nmcli d status | grep -P "$1.+connected"
+    nmcli d status | grep -P "$1\s*connected"
 }
 
-if [ "$(check $eth)" != "" ]; then
+if [ "$(check ethernet)" != "" ]; then
     echo 
-elif [ "$(check $wifi)" != "" ]; then
+elif [ "$(check wifi)" != "" ]; then
     echo 
 else
     echo 
