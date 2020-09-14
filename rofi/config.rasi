@@ -155,7 +155,7 @@ window {
     border-color: rgba(255, 255, 255, 0.1);
     y-offset: -200px;
     /* height: 300px; */
-    background-color: rgba(2, 4, 8, 0.85);
+    background-color: rgba(2, 4, 8, 0.9);
 }
 
 inputbar {

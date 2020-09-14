@@ -31,11 +31,11 @@
 ; 05% = 0D
 
 [colors]
-background-0 = #ff07070a
-background-1 = #ff242430
+background-0 = #ff020408
+background-1 = #c0020408
 foreground-0 = #fff
-foreground-1 = #747480
-foreground-2 = #373742
+foreground-1 = #888
+foreground-2 = #444
 alert = #f00
 
 [bar/main]
@@ -44,12 +44,14 @@ height = 40
 bottom = true
 wm-restack = bspwm
 
+monitor = eDP-1
+
 background-0 = ${colors.background-1}
 background-1 = ${colors.background-0}
 foreground = ${colors.foreground-0}
 
 border-top-size = 1
-border-color = #07070a
+border-color = #ff020408
 
 padding-left = 0
 padding-right = 4
@@ -57,14 +59,14 @@ padding-right = 4
 module-margin-left = 4
 module-margin-right = 4
 
-font-0 = Inter Medium:size=9;3
-font-1 = Inter SemiBold:size=9;3
-font-2 = Font Awesome 5 Brands:size=9;3
-font-3 = Font Awesome 5 Free:size=9;3
-font-4 = Font Awesome 5 Free Solid:size=9;3
+font-0 = Inter Medium:size=10;3
+font-1 = Inter SemiBold:size=10;3
+font-2 = Font Awesome 5 Brands:size=10;3
+font-3 = Font Awesome 5 Free:size=10;3
+font-4 = Font Awesome 5 Free Solid:size=10;3
 
 modules-left = bspwm xwindow
-modules-right = battery song network pulseaudio date
+modules-right = song battery vpn network pulseaudio date
 
 ;tray-position = right
 ;tray-padding = 2
@@ -80,13 +82,19 @@ cursor-scroll = default
 type = custom/script
 exec = sh ~/.config/script/network.sh
 interval = 2
-label = "%output%"
+label = %output%
 
 [module/song]
 type = custom/script
 exec = sh ~/.config/script/song.sh
 interval = 2
 label = "  %output%"
+
+[module/vpn]
+type = custom/script
+exec = sh ~/.config/script/vpn.sh
+interval = 2
+label = "  %output%"
 
 [module/xwindow]
 type = internal/xwindow

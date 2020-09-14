@@ -15,7 +15,7 @@ colr() {
     fi
 }
 
-title='\e]0;Alacritty - \w\a'
+title='\e]0;\w - Alacritty\a'
 export PS1="\[$(colr 5)\]\W \[$(colr -1)\]\$ \[$(echo -e "$title")\]"
 
 #
@@ -329,4 +329,9 @@ ghosts() {
     echo -e "$(colr 9)    ▀█████   $(colr 10)    ▀█████   $(colr 11)    ▀█████   $(colr 12)    ▀█████   $(colr 13)    ▀█████   $(colr 14)    ▀█████  "
     echo -e "$(colr 9)       ▀▀▀▀▄ $(colr 10)       ▀▀▀▀▄ $(colr 11)       ▀▀▀▀▄ $(colr 12)       ▀▀▀▀▄ $(colr 13)       ▀▀▀▀▄ $(colr 14)       ▀▀▀▀▄"
     colr -1
+}
+
+# switch to dual monito support
+dualmon() {
+    sudo sh $docs/Linux/dual_monitor.sh
 }

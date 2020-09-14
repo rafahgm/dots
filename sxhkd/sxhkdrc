@@ -57,11 +57,11 @@ super + p
 
 # Increase volume
 XF86AudioRaiseVolume
-	pactl set-sink-volume @DEFAULT_SINK@ +10%
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 # Decrease volume
 XF86AudioLowerVolume
-	pactl set-sink-volume @DEFAULT_SINK@ -10%
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # Toggle mute
 XF86AudioMute
@@ -81,11 +81,11 @@ XF86AudioNext
 
 # Increase screen brightness (laptop)
 XF86MonBrightnessUp
-	xbacklight -inc 10
+	sudo light -A 10
 
 # Decrease screen brightness (laptop)
 XF86MonBrightnessDown
-	xbacklight -dec 10
+	sudo light -U 10
 
 
 #
