@@ -81,11 +81,11 @@ XF86AudioNext
 
 # Increase screen brightness (laptop)
 XF86MonBrightnessUp
-	sudo light -A 10
+	sudo light -A 5
 
 # Decrease screen brightness (laptop)
 XF86MonBrightnessDown
-	sudo light -U 10
+	sudo light -U 5
 
 
 #
