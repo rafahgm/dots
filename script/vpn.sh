@@ -5,5 +5,5 @@ s=$(protonvpn s | head -1 | awk '{print $2}')
 if [ $s != "Disconnected" ]; then
     echo "VPN"
 else
-    echo ""
+    echo
 fi

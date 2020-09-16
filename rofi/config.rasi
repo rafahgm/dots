@@ -1,9 +1,9 @@
 configuration {
     modi: "drun,window,windowcd";
-    width: 40;
+    width: 50;
     lines: 10;
     columns: 3;
-    font: "Inter Regular 12";
+    font: "Inter Regular 14";
     bw: 10;
     /* location: 0; */
     /* padding: 10; */
@@ -167,7 +167,7 @@ inputbar {
 
 prompt {
 	margin: 0 4px 0 0;
-    font: "Inter SemiBold 12";
+    font: "Inter SemiBold 14";
 }
 
 element {

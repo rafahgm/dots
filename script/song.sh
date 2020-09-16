@@ -7,5 +7,5 @@ elif [ $(playerctl --player=spotify status) != "Paused" ]; then
     artist=$(playerctl --player=spotify metadata artist)
     echo "$title by $artist"
 else
-    echo "Paused"
+    echo
 fi
