@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$(playerctl -l)" == "playerctld" ]; then
+if [ ! "$(playerctl -l | grep spotify)" ]; then
     echo
 elif [ $(playerctl --player=spotify status) != "Paused" ]; then
     title=$(playerctl --player=spotify metadata title)

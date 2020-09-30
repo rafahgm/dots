@@ -48,8 +48,9 @@ alias files='detach nautilus'
 #   Locations
 #
 
+gospace="$GOPATH/src/github.com/barjoco"
 usb='/mnt/Portable'
-
+bks="$usb/Bookmarks"
 docs="$usb/Documents"
 pics="$usb/Pictures"
 vids="$usb/Videos"
@@ -58,10 +59,10 @@ uni="$usb/Uni"
 prog="$usb/Programming"
 dls="$HOME/Downloads"
 cfg="$HOME/.config"
-gospace="$GOPATH/src/github.com/barjoco"
 
-alias usb='cdr "$usb"'
 alias home='cdr "$HOME"'
+alias usb='cdr "$usb"'
+alias bks='cdr "$bks"'
 alias docs='cdr "$docs"'
 alias pics='cdr "$pics"'
 alias vids='cdr "$vids"'
@@ -70,6 +71,7 @@ alias uni='cdr "$uni"'
 alias prog='cdr "$prog"'
 alias dls='cdr "$dls"'
 alias cfg='cdr "$cfg"'
+
 
 #
 #   Functions
