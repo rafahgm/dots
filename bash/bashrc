@@ -337,3 +337,8 @@ ghosts() {
 dualmon() {
     sudo sh $docs/Linux/dual_monitor.sh
 }
+
+# snippets - for lack of a better term, general help with linux stuff
+snippets() {
+    detachx ghostwriter ~/.config/_snippets.md
+}

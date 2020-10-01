@@ -36,7 +36,7 @@ background-1 = #c0020408
 foreground-0 = #fff
 foreground-1 = #888
 foreground-2 = #444
-alert = #f00
+alert = #f88
 
 [bar/main]
 width = 100%
