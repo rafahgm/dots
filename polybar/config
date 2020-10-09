@@ -31,8 +31,8 @@
 ; 05% = 0D
 
 [colors]
-background-0 = #ff020408
-background-1 = #c0020408
+background-0 = #ff000000
+background-1 = #80000000
 foreground-0 = #fff
 foreground-1 = #888
 foreground-2 = #444
