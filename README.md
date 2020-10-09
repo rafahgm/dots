@@ -8,8 +8,8 @@
 **Notifications**: dunst  
 **Terminal**:      alacritty  
 **GTK**:           plata-noir-compact  
-**Icons**:         deepin-dark  
-**Cursor**:        deepin-dark  
+**Icons**:         adwaita  
+**Cursor**:        adwaita  
 
 ![preview1](preview1.png)
 

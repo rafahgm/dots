@@ -1,15 +1,12 @@
 {
+    "composer.executablePath": "/usr/bin/composer",
     "editor.fontFamily": "'Roboto Mono', 'Font Awesome 5 Brands', 'Font Awesome 5 Free', 'Font Awesome 5 Free Solid'",
-    "window.menuBarVisibility": "toggle",
-    "workbench.iconTheme": "quill-icons",
-    "workbench.colorTheme": "Anirak",
-    "markdown.extension.toc.levels": "2..6",
+    "editor.minimap.renderCharacters": false,
     "explorer.confirmDelete": false,
     "go.formatTool": "goimports",
     "go.inferGopath": true,
-    "window.zoomLevel": 0,
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    "explorer.confirmDragAndDrop": false
+    "markdown.extension.toc.levels": "2..6",
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Anirak",
+    "workbench.iconTheme": "quill-icons"
 }
