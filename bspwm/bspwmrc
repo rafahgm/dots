@@ -38,6 +38,9 @@ start polybar main
 # playerctl
 start playerctld
 
+# conky
+start conky
+
 
 #
 #   Startup run commands
@@ -48,7 +51,7 @@ pactl set-sink-volume @DEFAULT_SINK@ 10%
 
 # xrandr set 165hz refresh rate
 # (enable force full composition in nvidia-settings)
-xrandr --output DP-4 --mode 1920x1080 --rate 164.92
+# xrandr --output DP-4 --mode 1920x1080 --rate 164.92
 
 # root window cursor
 xsetroot -cursor_name left_ptr

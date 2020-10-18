@@ -16,10 +16,12 @@
   - `bluetoothctl disconnect MAC`
 
 ## cursors
-- `sudo eopkg install deepin-icon-theme-dark`
+- `sudo eopkg install deepin-icon-theme`
   - Change in lxappearance and gnome-tweaks
-  - `sudo cp -r ~/.local/share/icons/DeppinDark-cursors /usr/share/icons`
-  - In /usr/share/icons/default/index.theme: `Inherits=DeppinDark-cursors`
+  -	`sudo nano /usr/share/icons/deepin/cursor.theme`
+  -	`Name=deepin`
+  -	(this might be enough for it to work, but if not try these things)
+  -	`sudo cp -r /usr/share/icons/deepin ~/.local/share/icons ~/.icons`
 
 ## dpi settings
 - In general
