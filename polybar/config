@@ -32,7 +32,7 @@
 
 [colors]
 background-0 = #ff000000
-background-1 = #80000000
+background-1 = #40000000
 foreground-0 = #fff
 foreground-1 = #888
 foreground-2 = #444
