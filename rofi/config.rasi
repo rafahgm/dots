@@ -43,7 +43,7 @@ configuration {
     /* filter:; */
     /* separator-style: "dash"; */
     /* hide-scrollbar: false; */
-    /* fullscreen: false; */
+    fullscreen: true;
     /* fake-transparency: false; */
     /* dpi: -1; */
     /* threads: 0; */
@@ -150,9 +150,9 @@ configuration {
 }
 
 window {
-	padding: 15px;
+	padding: 300px;
     border: 1px;
-    border-color: rgba(255, 255, 255, 0.1);
+    //border-color: rgba(255, 255, 255, 0.1);
     y-offset: -200px;
     /* height: 300px; */
     background-color: rgba(2, 4, 8, 0.9);
