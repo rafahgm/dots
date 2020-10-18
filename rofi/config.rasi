@@ -150,12 +150,12 @@ configuration {
 }
 
 window {
-	padding: 300px;
-    border: 1px;
+	padding: 300px 400px;
+    //border: 1px;
     //border-color: rgba(255, 255, 255, 0.1);
     y-offset: -200px;
-    /* height: 300px; */
-    background-color: rgba(2, 4, 8, 0.85);
+    //height: 300px;
+    background-color: rgba(2, 4, 8, 0.9);
 }
 
 inputbar {
