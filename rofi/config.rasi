@@ -63,11 +63,11 @@ configuration {
     /* matching-negate-char: '-'; */
     /* cache-dir: ; */
     /* pid: "/run/user / 1000/rofi.pid"; */
-    display-window: "All windows:";
-    display-windowcd: "Workspace windows:";
+    display-window: "  ";
+    display-windowcd: "  ";
     /* display-run: ; */
     /* display-ssh: ; */
-    display-drun: "Open:";
+    display-drun: "  ";
     /* display-combi: ; */
     /* display-keys: ; */
     /* kb-primary-paste: "Control+V,Shift+Insert"; */
@@ -155,19 +155,21 @@ window {
     //border-color: rgba(255, 255, 255, 0.1);
     y-offset: -200px;
     //height: 300px;
-    background-color: rgba(2, 4, 8, 0.9);
+    background-color: rgba(2, 4, 8, 0.85);
 }
 
 inputbar {
-    padding: 0 0 5px 0;
-	margin: 0 0 5px 0;
-    border: 0 0 1px 0;
-    border-color: rgba(255, 255, 255, 0.1);
+    padding: 10px 10px 10px 20px;
+    border-radius: 99px;
+	margin: 0 0 30px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 prompt {
-	margin: 0 4px 0 0;
-    font: "Inter SemiBold 14";
+	margin: 2px 4px 0 0;
+    font: "Font Awesome 5 Free 10";
 }
 
 element {
