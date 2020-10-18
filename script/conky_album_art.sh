@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-#   Checks every 5 seconds for song change, updates the album art if the song has changed
+#   Conky album art getter
 #
 
 # restarts conky in destkop mode
@@ -21,43 +21,42 @@ current_spotify_state=''
 
 while true; do
 
+    # get spotify state
     this_spotify_state="$(playerctl -l | grep spotify || echo 'closed')"
 
-    # check if spotify has changed state and the state is closed
-    if [ "$current_spotify_state" != "$this_spotify_state" ] && [ "$this_spotify_state" == 'closed' ]; then
-            echo 'Spotify changed to closed'
-            echo '' >~/Pictures/album_art
-            current_track_id=''
+    # check is spotify is open
+    if [ "$this_spotify_state" != 'closed' ]; then
+        # get track id
+        this_track_id="$(playerctl --player=spotify metadata mpris:trackid)"
+        # check if track id has changed
+        if [ "$current_track_id" != "$this_track_id" ]; then
+            echo 'Song has changed'
+            # get new album art
+            download_album_art
             restart_conky
-    else
-        # else: state is the same or spotify is open (or both)
-        # check if spotify is open
-        if [ "$this_spotify_state" != 'closed' ]; then
-            echo 'Spotify is open'
-
-            this_track_id="$(playerctl --player=spotify metadata mpris:trackid)"
-
-            # check if song has changed
-            if [ "$current_track_id" != "$this_track_id" ]; then
-                echo 'Song has changed'
-                # save new album art
-                download_album_art
-                restart_conky
-                # update the current track id
-                current_track_id="$this_track_id"
-            else
-                # else: state is the same, spotify is open, song is the same, do nothing
-                echo 'Song is the same'
-            fi
-
+            # update the current track id
+            current_track_id="$this_track_id"
         else
-            # else: state is the same, spotify is closed, do nothing
+            # track id hasn't changed, do nothing
+            echo 'Song is the same'
+        fi
+    else
+        # else: spotify is closed
+        # check if the state was changed
+        if [ "$current_spotify_state" != "$this_spotify_state" ]; then
+            echo 'Spotify changed to closed'
+            # set the album art to nothing
+            echo '' >~/Pictures/album_art
+            restart_conky
+            # reset the track id, update current spotify state
+            current_track_id=''
+            current_spotify_state="$this_spotify_state"
+        else
+            # else: spotify is still closed, do nothing
             echo 'Spotify is closed'
         fi
     fi
 
-    # update current spotify state
-    current_spotify_state="$this_spotify_state"
     echo '--------------'
     sleep 2
 done
