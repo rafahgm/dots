@@ -60,7 +60,7 @@ pkill conky_album_art
 #
 
 # starting volume
-pactl set-sink-volume @DEFAULT_SINK@ 10%
+pactl set-sink-volume @DEFAULT_SINK@ 50%
 
 # root window cursor
 xsetroot -cursor_name left_ptr
