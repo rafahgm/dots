@@ -8,12 +8,16 @@
 !bash/**
 !bspwm
 !bspwm/**
+!conky
+!conky/**
 !dunst
 !dunst/**
 !feh
 !feh/**
 !flameshot
 !flameshot/**
+!glava
+!glava/**
 !gtk-3.0
 !gtk-3.0/**
 !picom
