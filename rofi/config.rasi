@@ -19,7 +19,7 @@ configuration {
     /* run-shell-command: "{terminal} -e {cmd}"; */
     /* window-command: "wmctrl -i -R {window}"; */
     /* window-match-fields: "all"; */
-    icon-theme: "DeppinDark-cursors";
+    icon-theme: "deepin";
     /* drun-match-fields: "name,generic,exec,categories"; */
     /* drun-show-actions: false; */
     drun-display-format: "{icon} {name}";
@@ -155,7 +155,7 @@ window {
     //border-color: rgba(255, 255, 255, 0.1);
     y-offset: -200px;
     //height: 300px;
-    background-color: rgba(2, 4, 8, 0.85);
+    background-color: rgba(2, 4, 8, 0.9);
 }
 
 inputbar {
