@@ -23,6 +23,10 @@
   -	(this might be enough for it to work, but if not try these things)
   -	`sudo cp -r /usr/share/icons/deepin ~/.local/share/icons ~/.icons`
 
+# chromium
+- dark mode
+  - `--force-dark-mode --enable-features=WebUIDarkMode`
+
 ## dpi settings
 - In general
   - In ~/.Xresources: `Xft.dpi: 110`
