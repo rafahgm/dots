@@ -53,7 +53,6 @@ while true; do
             # else: spotify is still closed, do nothing
             echo 'Spotify is closed'
         fi
-        # reset the track id, update current spotify state
     fi
 
     # update spotify state
