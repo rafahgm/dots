@@ -72,7 +72,7 @@
 ## lamp
 - Apache usage: https://getsol.us/articles/software/httpd/en/
 - Install
-  - `sudo eopkg install php httpd mariadb-server`
+  - `sudo eopkg install php httpd mariadb-server	`
 - Create config directory
   - `mkdir -p /etc/httpd/conf.d/`
 - Create php index file
@@ -81,14 +81,14 @@
   - `sudo touch /etc/httpd/conf.d/php.conf`
   - Write to php.conf:
     ```conf
-    LoadModule proxy_module lib64/httpd/mod_proxy.so
-    LoadModule proxy_fcgi_module lib64/httpd/mod_proxy_fcgi.so
-    <FilesMatch \.php$>
-    SetHandler "proxy:fcgi://127.0.0.1:9000"
-    </FilesMatch>
-    <IfModule dir_module>
-    DirectoryIndex index.php index.html
-    </IfModule>
+    LoadModule proxy_module lib64/httpd/mod_proxy.so  
+    LoadModule proxy_fcgi_module lib64/httpd/mod_proxy_fcgi.so  
+    <FilesMatch \.php$>  
+    SetHandler "proxy:fcgi://127.0.0.1:9000"  
+    </FilesMatch>  
+    <IfModule dir_module>  
+    DirectoryIndex index.php index.html  
+    </IfModule>	
     ```
 - Load changes
   - `sudo systemctl restart httpd && sudo systemctl restart php-fpm`
@@ -96,9 +96,9 @@
   - `sudo touch /etc/httpd/conf.d/vhosts.conf`
 - Write to vhosts.php:
   ```conf
-  <VirtualHost *:80>
-    DocumentRoot "/var/www/forum"
-    ServerName forum
+  <VirtualHost *:80>  
+    DocumentRoot "/var/www/forum"  
+    ServerName forum  	
   </VirtualHost>
   ```
 - Write to /etc/hosts: `127.0.0.1   forum`

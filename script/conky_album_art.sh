@@ -48,15 +48,18 @@ while true; do
             # set the album art to nothing
             echo '' >~/Pictures/album_art
             restart_conky
-            # reset the track id, update current spotify state
             current_track_id=''
-            current_spotify_state="$this_spotify_state"
         else
             # else: spotify is still closed, do nothing
             echo 'Spotify is closed'
         fi
+        # reset the track id, update current spotify state
     fi
 
+    # update spotify state
+    current_spotify_state="$this_spotify_state"
+
+    # sleep 2 seconds every loop
     echo '--------------'
     sleep 2
 done

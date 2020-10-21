@@ -1,13 +1,21 @@
 [Default Applications]
-x-scheme-handler/http=firefox.desktop
-x-scheme-handler/https=firefox.desktop
+x-scheme-handler/http=userapp-Firefox-QRJHS0.desktop
+x-scheme-handler/https=userapp-Firefox-QRJHS0.desktop
 x-scheme-handler/about=firefox.desktop
 x-scheme-handler/unknown=firefox.desktop
 image/png=firefox.desktop;
 image/jpeg=firefox.desktop;
 text/plain=firefox.desktop;
-text/html=firefox.desktop
+text/html=userapp-Firefox-QRJHS0.desktop
 audio/mpeg=io.github.GnomeMpv.desktop
+x-scheme-handler/ftp=userapp-Firefox-QRJHS0.desktop
+x-scheme-handler/chrome=userapp-Firefox-QRJHS0.desktop
+application/x-extension-htm=userapp-Firefox-QRJHS0.desktop
+application/x-extension-html=userapp-Firefox-QRJHS0.desktop
+application/x-extension-shtml=userapp-Firefox-QRJHS0.desktop
+application/xhtml+xml=userapp-Firefox-QRJHS0.desktop
+application/x-extension-xhtml=userapp-Firefox-QRJHS0.desktop
+application/x-extension-xht=userapp-Firefox-QRJHS0.desktop
 
 [Added Associations]
 application/x-java-archive=java-8-jar.desktop;
@@ -28,3 +36,15 @@ audio/mpeg=org.kde.kid3-qt.desktop;io.github.GnomeMpv.desktop;
 video/x-matroska=org.kde.kid3-qt.desktop;
 text/markdown=firefox.desktop;
 image/jpg=firefox.desktop;
+x-scheme-handler/http=userapp-Firefox-QRJHS0.desktop;
+x-scheme-handler/https=userapp-Firefox-QRJHS0.desktop;
+x-scheme-handler/ftp=userapp-Firefox-QRJHS0.desktop;
+x-scheme-handler/chrome=userapp-Firefox-QRJHS0.desktop;
+text/html=userapp-Firefox-QRJHS0.desktop;
+application/x-extension-htm=userapp-Firefox-QRJHS0.desktop;
+application/x-extension-html=userapp-Firefox-QRJHS0.desktop;
+application/x-extension-shtml=userapp-Firefox-QRJHS0.desktop;
+application/xhtml+xml=userapp-Firefox-QRJHS0.desktop;
+application/x-extension-xhtml=userapp-Firefox-QRJHS0.desktop;
+application/x-extension-xht=userapp-Firefox-QRJHS0.desktop;
+application/vnd.openxmlformats-officedocument.presentationml.presentation=firefox.desktop;
