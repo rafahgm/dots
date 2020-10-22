@@ -4,8 +4,6 @@
 #   BSPWM window switcher
 #
 
-bspc desktop -f VII
-
 desktop_name=''
 rofi=''
 
