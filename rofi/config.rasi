@@ -50,7 +50,7 @@ configuration {
     /* scrollbar-width: 8; */
     /* scroll-method: 0; */
     /* fake-background: "screenshot"; */
-    window-format: "  {w}  {t}";
+    window-format: "{w}\t{t}";
     /* click-to-exit: true; */
     /* show-match: true; */
     /* theme: ; */
