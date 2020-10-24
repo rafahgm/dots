@@ -42,6 +42,7 @@ alias lr='exa -rsmod'    # list recently modified files, newest first
 alias open='xdg-open'
 alias code='detach code-oss'
 alias files='detach nautilus'
+alias shutdown='sudo shutdown now'
 
 #
 #   Locations
@@ -342,18 +343,6 @@ dualmon() {
 # snippets - general help with linux stuff
 snippets() {
     detachx ghostwriter ~/.config/_snippets.md
-}
-
-# shutdown checks to see if user wants to
-# updatedb first before shutting down
-shutdown() {
-    read -p "$(colr 6)updatedb?$(colr 4)(yes/no) $(colr -1)" input
-    if [ "$input" == 'yes' ] || [ "$input" == 'y' ]; then
-        sudo updatedb >/dev/null 2>&1
-    elif [ "$input" != 'no' ]  && [ "$input" != 'n' ]; then
-        return 1
-    fi
-    sudo shutdown now
 }
 
 # calc is a calculator: calc 2 + 2
