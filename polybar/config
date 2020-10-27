@@ -31,8 +31,8 @@
 ; 05% = 0D
 
 [colors]
-background-0 = #ff000000
-background-1 = #40000000
+background-0 = #40000000
+background-1 = #ff000000
 foreground-0 = #fff
 foreground-1 = #888
 foreground-2 = #444
@@ -46,8 +46,8 @@ wm-restack = bspwm
 
 #monitor = eDP-1
 
-background-0 = ${colors.background-1}
-background-1 = ${colors.background-0}
+background-0 = ${colors.background-0}
+background-1 = ${colors.background-1}
 foreground = ${colors.foreground-0}
 
 border-top-size = 1
