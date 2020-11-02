@@ -26,6 +26,13 @@
 # chromium
 - dark mode
   - `--force-dark-mode --enable-features=WebUIDarkMode`
+- overlay scrollbar
+  - `--enable-features=OverlayScrollbar,OverlayScrollbarFlashAfterAnyScrollUpdate,OverlayScrollbarFlashWhenMouseEnter`
+- set default
+  - `xdg-settings set default-web-browser ungoogled-chromium.desktop`
+  - edit `~/.config/chromium/Default/Preferences`
+  - find `"browser"` object insert property `"check_default_browser":false`
+  - next time "chrome isn't your default browser" pop-up comes up, close it and it should stay closed
 
 ## dpi settings
 - In general
@@ -68,6 +75,10 @@
 ## fstab
 - Auto-mount USB
   - In /etc/fstab, add: `/dev/disk/by-label/Portable /mnt/Portable auto nofail,nosuid,nodev,gid=1000,uid=1000,x-gvfs-show 0 0`
+  
+## git
+- Hard reset
+  - `git reset --hard`
 
 ## lamp
 - Apache usage: https://getsol.us/articles/software/httpd/en/
@@ -112,6 +123,13 @@
   - Relog
 - `sudo nvidia-settings`
 - Enable force full composition to fix refresh rate
+
+## php
+- Symfony
+  - `There are no commands defined in the "server" namespace.`
+    - `composer require symfony/web-server-bundle --dev`
+  - `There are no commands defined in the "generate" namespace.`
+    - `composer require sensio/generator-bundle`
 
 ## qt
 - "QT\_QPA\_PLATFORMTHEME not set"

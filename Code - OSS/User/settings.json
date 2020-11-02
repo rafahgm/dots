@@ -8,5 +8,8 @@
     "markdown.extension.toc.levels": "2..6",
     "window.menuBarVisibility": "toggle",
     "workbench.colorTheme": "Anirak",
-    "workbench.iconTheme": "quill-icons"
+    "workbench.iconTheme": "quill-icons",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
 }

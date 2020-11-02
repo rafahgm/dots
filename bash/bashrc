@@ -36,6 +36,8 @@ export PATH="$PATH":"$GOPATH/bin":"$JAVA_HOME/bin"
 #   Aliases
 #
 
+alias cd='pushd >/dev/null 2>&1'
+alias pd='popd >/dev/null 2>&1'
 alias ls='exa -stype'    # sort alphabetically and by type
 alias ll='exa -stype -l' # the same, with more detail
 alias lr='exa -rsmod'    # list recently modified files, newest first
@@ -70,13 +72,14 @@ alias music='cdr "$music"'
 alias prog='cdr "$prog"'
 alias dls='cdr "$dls"'
 alias cfg='cdr "$cfg"'
+alias fyp='cdr "$uni/Year_3/Final_Year_Project"'
 
 # enter uni directory for specific year, for example `uni 3`
 uni() {
     if [ "$1" != '' ]; then
-        cdr "$uni"/Year_$1;
+        cdr "$uni"/Year_$1
     else
-        cdr "$uni";
+        cdr "$uni"
     fi
 }
 
@@ -120,16 +123,16 @@ topdf() {
     lowriter --convert-to pdf "$@"
 }
 
-# open in firefox: goto example.pdf
+# open in ungoogled-chromium: goto example.pdf
 goto() {
     for x in "$@"; do
-        detach firefox "$x"
+        detach ungoogled-chromium "$x"
     done
 }
 
-# search google in firefox: search foo bar baz
+# search google in ungoogled-chromium: search foo bar baz
 search() {
-    detachx firefox "https://www.google.co.uk/search?q=$(echo "$@" | sed s/" "/+/g)"
+    detachx ungoogled-chromium "https://www.google.co.uk/search?q=$(echo "$@" | sed s/" "/+/g)"
 }
 
 # remove spaces from filenames: rmspaces *.pdf
@@ -178,12 +181,12 @@ vol() {
 }
 
 # increase volume
-volup() {
+volinc() {
     pactl set-sink-volume @DEFAULT_SINK@ +10%
 }
 
 # decrease volume
-voldown() {
+voldec() {
     pactl set-sink-volume @DEFAULT_SINK@ -10%
 }
 
@@ -261,32 +264,6 @@ wifi() {
     fi
 }
 
-# general network commands
-nw() {
-    if [ "$1" = 'status' ]; then
-        nmcli g status
-    elif [ "$1" = 'hostname' ]; then
-        nmcli g hostname
-    elif [ "$1" = 'on' ]; then
-        nmcli n on
-    elif [ "$1" = 'off' ]; then
-        nmcli n off
-    elif [ "$1" = 'active' ]; then
-        nmcli c show --active
-    elif [ "$1" = 'devices' ]; then
-        nmcli d status
-    elif [ "$1" = 'help' ]; then
-        echo 'status'
-        echo 'hostname'
-        echo 'on'
-        echo 'off'
-        echo 'active'
-        echo 'devices'
-    else
-        echo 'unknown argument'
-    fi
-}
-
 # battery
 bat() {
     acpi -b
@@ -348,4 +325,14 @@ snippets() {
 # calc is a calculator: calc 2 + 2
 calc() {
     echo "$@" | bc -l
+}
+
+# create another terminal in the same location
+dupe() {
+    detach alacritty --working-directory "$(pwd)"
+}
+
+# get latest tag from github repo: getlatesttag ungoogled-software/ungoogled-chromium-portablelinux
+getlatesttag() {
+    curl -s "https://api.github.com/repos/$1/tags" | jq '.[0].name'
 }
