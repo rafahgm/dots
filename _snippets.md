@@ -23,16 +23,23 @@
   -	(this might be enough for it to work, but if not try these things)
   -	`sudo cp -r /usr/share/icons/deepin ~/.local/share/icons ~/.icons`
 
-# chromium
+# ungoogled-chromium
 - dark mode
   - `--force-dark-mode --enable-features=WebUIDarkMode`
 - overlay scrollbar
   - `--enable-features=OverlayScrollbar,OverlayScrollbarFlashAfterAnyScrollUpdate,OverlayScrollbarFlashWhenMouseEnter`
-- set default
+- set as default
   - `xdg-settings set default-web-browser ungoogled-chromium.desktop`
   - edit `~/.config/chromium/Default/Preferences`
   - find `"browser"` object insert property `"check_default_browser":false`
   - next time "chrome isn't your default browser" pop-up comes up, close it and it should stay closed
+- extensions
+  - `chrome://flags/#extension-mime-request-handling`
+  - set to 'Always prompt for install'
+  - use this url to install extensions: `https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion=[VERSION]&x=id%3D[EXTENSION_ID]%26installsource%3Dondemand%26uc`
+  - replace [VERSION] with the version ("86.0.4240.111" for example) and [EXTENSION_ID]
+- disable history autocomplete
+  - `#omnibox-autocomplete-filtering`
 
 ## dpi settings
 - In general

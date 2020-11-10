@@ -1,13 +1,16 @@
 *
 !_snippets.md
-!.gitignore
 !.gitattributes
+!.gitignore
 !alacritty
 !alacritty/**
 !bash
 !bash/**
 !bspwm
 !bspwm/**
+!Code - OSS
+!Code - OSS/User
+!Code - OSS/User/settings.json
 !conky
 !conky/**
 !dunst
@@ -20,12 +23,18 @@
 !glava/**
 !gtk-3.0
 !gtk-3.0/**
+!mimeapps.list
 !picom
 !picom/**
 !polybar
 !polybar/**
+!preview1.png
+!preview2.png
+!preview3.png
+!preview4.png
 !PulseEffects
 !PulseEffects/**
+!README.md
 !rofi
 !rofi/**
 !script
@@ -34,13 +43,4 @@
 !spicetify/**
 !sxhkd
 !sxhkd/**
-!mimeapps.list
-!preview1.png
-!preview2.png
-!preview3.png
-!preview4.png
-!README.md
-!Code - OSS
-!Code - OSS/User
-!Code - OSS/User/settings.json
-!window_switcher.png
+!ungoogled-chromium.desktop

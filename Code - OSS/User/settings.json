@@ -1,6 +1,8 @@
 {
     "composer.executablePath": "/usr/bin/composer",
-    "editor.fontFamily": "'Roboto Mono', 'Font Awesome 5 Brands', 'Font Awesome 5 Free', 'Font Awesome 5 Free Solid'",
+    "editor.fontFamily": "'Roboto Mono Medium', 'Font Awesome 5 Brands', 'Font Awesome 5 Free', 'Font Awesome 5 Free Solid'",
+    // "editor.fontWeight": "bold",
+    "editor.lineHeight": 20,
     "editor.minimap.renderCharacters": false,
     "explorer.confirmDelete": false,
     "go.formatTool": "goimports",
@@ -11,5 +13,28 @@
     "workbench.iconTheme": "quill-icons",
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "window.zoomLevel": 0,
+    "editor.mouseWheelZoom": true,
+    "workbench.statusBar.visible": true,
+    "workbench.activityBar.visible": true,
+    "editor.minimap.enabled": true,
+    "workbench.editor.showTabs": true,
+    "breadcrumbs.enabled": true,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "explorer.confirmDragAndDrop": false,
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
     }
 }

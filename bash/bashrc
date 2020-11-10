@@ -123,16 +123,16 @@ topdf() {
     lowriter --convert-to pdf "$@"
 }
 
-# open in ungoogled-chromium: goto example.pdf
+# open in firefox: goto example.pdf
 goto() {
     for x in "$@"; do
-        detach ungoogled-chromium "$x"
+        detach firefox "$x"
     done
 }
 
-# search google in ungoogled-chromium: search foo bar baz
+# search google in firefox: search foo bar baz
 search() {
-    detachx ungoogled-chromium "https://www.google.co.uk/search?q=$(echo "$@" | sed s/" "/+/g)"
+    detachx firefox "https://www.google.co.uk/search?q=$(echo "$@" | sed s/" "/+/g)"
 }
 
 # remove spaces from filenames: rmspaces *.pdf
