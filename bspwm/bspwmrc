@@ -24,7 +24,7 @@ start sxhkd
 start feh --bg-scale /mnt/Portable/Pictures/Wallpapers/branch_cropped.jpg
 
 # compositor
-start picom
+start picom --experimental-backends
 
 # notifications
 start dunst
