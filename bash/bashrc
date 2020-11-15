@@ -177,7 +177,7 @@ towebm() {
 
 # get volume
 vol() {
-    amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }'
+    amixer -D pulse sget Master | grep -Eo "[^[]+%"
 }
 
 # increase volume
