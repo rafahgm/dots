@@ -1,6 +1,6 @@
 {
     "composer.executablePath": "/usr/bin/composer",
-    "editor.fontFamily": "'Roboto Mono Medium', 'Font Awesome 5 Brands', 'Font Awesome 5 Free', 'Font Awesome 5 Free Solid'",
+    "editor.fontFamily": "'Roboto Mono', 'Font Awesome 5 Brands', 'Font Awesome 5 Free', 'Font Awesome 5 Free Solid'",
     // "editor.fontWeight": "bold",
     "editor.lineHeight": 20,
     "editor.minimap.renderCharacters": false,

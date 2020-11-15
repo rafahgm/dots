@@ -21,7 +21,7 @@ start() {
 start sxhkd
 
 # wallpaper
-start feh --bg-scale ~/Pictures/wallpaper.jpg
+start feh --bg-scale /mnt/Portable/Pictures/Wallpapers/branch_cropped.jpg
 
 # compositor
 start picom
@@ -33,7 +33,10 @@ start dunst
 start pulseeffects --gapplication-service
 
 # polybar
-start polybar main
+# start polybar main
+
+# tint2
+start tint2
 
 # playerctl
 start playerctld
@@ -46,13 +49,13 @@ start ~/.config/script/touchpad.sh
 # xrandr --output DP-4 --mode 1920x1080 --rate 164.92
 
 # glava and conky
-start glava -d
-sleep 1
+# start glava -d
+# sleep 1
 start conky -d
 
 # conky album art
-pkill conky_album_art
-~/.config/script/conky_album_art.sh &
+# pkill conky_album_art
+# ~/.config/script/conky_album_art.sh &
 
 
 #
@@ -74,13 +77,13 @@ xsetroot -cursor_name left_ptr
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 # border
-bspc config focused_border_color "#aaaaaa"
+bspc config focused_border_color "#ffffff"
 bspc config normal_border_color  "#0f0f0f"
 
 # windows
 bspc config border_width          1
 bspc config split_ratio           0.5
-bspc config window_gap            8
+bspc config window_gap            4
 
 # monocle
 bspc config single_monocle        true
