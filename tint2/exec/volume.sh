@@ -6,7 +6,7 @@ status=${status::-1}
 vol=$(amixer -D pulse sget Master | grep 'Front Left' | grep -Eo '[^[]+%')
 vol=${vol::-1}
 
-echo >&2 $vol%
+echo >&2 Volume $vol%
 
 if [ "$status" = "off" ]; then
     echo 
