@@ -2,7 +2,7 @@
 
 **OS**:            Solus  
 **WM**:            bspwm  
-**Bar**:           polybar  
+**Bar**:           tint2  
 **Launcher**:      rofi  
 **Compositor**:    picom  
 **Notifications**: dunst  
